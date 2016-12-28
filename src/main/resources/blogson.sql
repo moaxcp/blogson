@@ -1,14 +1,14 @@
-DROP TABLE blogson_comment;
-DROP TABLE blogson_news;
-DROP TABLE blogson_style;
-DROP TABLE blogson_member_site;
-DROP TABLE blogson_member;
-DROP TABLE blogson_guestbook;
-DROP TABLE blogson_site_vars;
+﻿DROP TABLE IF EXISTS blogson_comment;
+DROP TABLE IF EXISTS blogson_news;
+DROP TABLE IF EXISTS blogson_style;
+DROP TABLE IF EXISTS blogson_member_site;
+DROP TABLE IF EXISTS blogson_member;
+DROP TABLE IF EXISTS blogson_guestbook;
+DROP TABLE IF EXISTS blogson_site_vars;
 
-DROP SEQUENCE blogson_news_seq;
-DROP SEQUENCE blogson_comment_seq;
-DROP SEQUENCE blogson_guestbook_seq;
+DROP SEQUENCE IF EXISTS blogson_news_seq;
+DROP SEQUENCE IF EXISTS blogson_comment_seq;
+DROP SEQUENCE IF EXISTS blogson_guestbook_seq;
 
 CREATE SEQUENCE blogson_news_seq;
 CREATE SEQUENCE blogson_comment_seq;

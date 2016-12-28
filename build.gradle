@@ -1,5 +1,8 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
+
+version = '0.0.0-SNAPSHOT'
+group = 'com.github.moaxcp'
  
  repositories {
      mavenCentral()

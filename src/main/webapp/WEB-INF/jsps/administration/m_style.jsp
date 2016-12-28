@@ -14,14 +14,14 @@ if(rs.first())  {
 
 	while(rs.next())  {
 		%>
-		[<a href=<%= response.encodeURL("?action=f_set_style&nav=Admin&view=m_style&stylename=" + rs.getString("stylename") + "&site_name=" + site_name) %>><%= rs.getString("stylename") %></a>]
+		[<a href=<%= response.encodeURL("?action=f_set_style&nav=Admin&view=m_style&stylename=" + rs.getString("stylename")) %>><%= rs.getString("stylename") %></a>]
 		<%
 	}
 }
 %><br />
 NOTE! Using the style links above will replace your current style<br>
 
-<form name="m_style" onsubmit="return validate_form(m_style)" method="POST" action="<%= response.encodeURL("?action=f_m_style&nav=Admin&view=m_style&site_name=" + site_name) %>">
+<form name="m_style" onsubmit="return validate_form(m_style)" method="POST" action="<%= response.encodeURL("?action=f_m_style&nav=Admin&view=m_style") %>">
       <table width="100%">
 
 	<%
@@ -30,7 +30,7 @@ NOTE! Using the style links above will replace your current style<br>
 
 		try  {
 
-			rs = stmt.executeQuery("SELECT style FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+			rs = stmt.executeQuery("SELECT style FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 
 			if(rs.first())  {
 

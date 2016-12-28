@@ -26,15 +26,14 @@
  //TODO could probably get this from an access log
 long load_time = System.currentTimeMillis();
 String site_message = new String();
-String site_name = new String();
+String siteName = "main";
 
-//TODO convert to a variable on the path
-if(request.getParameter("site_name") != null)  {
-	site_name = request.getParameter("site_name");
+if(request.getAttribute("siteName") != null)  {
+	siteName = (String) request.getAttribute("siteName");
 }
-else  {
-	site_name = "main";
-}
+
+//TODO remove once converted to path variables
+String site_name = siteName;
 
 /***************************************************************
  * CONNECTION
@@ -72,7 +71,7 @@ boolean logged = false;
 
 if(session.getAttribute("uname") != null)  {
 
-	rs = stmt.executeQuery("select * from " + dbPrefix + "member natural join " + dbPrefix + "member_site where uname = '" + session.getAttribute("uname") + "' and sessionid = '" + session.getId() + "' and varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("select * from " + dbPrefix + "member natural join " + dbPrefix + "member_site where uname = '" + session.getAttribute("uname") + "' and sessionid = '" + session.getId() + "' and varsname = '" + siteName + "'");
 	if(rs.first())  {
 		logged_uname = (String)session.getAttribute("uname");
 		logged_position = rs.getString("job");
@@ -122,7 +121,7 @@ String signed_title = new String();
 
 
 
-rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 if(rs.first())  {
 	title = rs.getString("title");
 	header = rs.getString("header");
@@ -174,7 +173,7 @@ if(request.getParameter("nav") != null)
 <title>
   <%= title %>
 </title>
-<script language="Javascript" src="javascript.js"></script>
+<script language="Javascript" src="${pageContext.request.contextPath}/js/javascript.js"></script>
 <link rev="made" href="mailto:<%= owneremail %>" />
 <%= metatags %>
 <meta name="author" content="<%= ownername %>" />
@@ -199,21 +198,21 @@ if(request.getParameter("nav") != null)
 	<%
 	if(!logged)  {
       		%>
-		[<a href="<%= response.encodeURL("?view=login&nav=" + nav + "&site_name=" + site_name) %>">login</a>] [<a href="<%= response.encodeURL("?view=register&nav=" + nav + "&site_name=" + site_name) %>">register</a>]
+		[<a href="<%= response.encodeURL("?view=login&nav=" + nav) %>">login</a>] [<a href="<%= response.encodeURL("?view=register&nav=" + nav) %>">register</a>]
 		<%
 	}
 	else  {
 		%>
-		<%= welcome_user %> <%= logged_uname %> [<a href="<%= response.encodeURL("?action=logout&site_name=" + site_name) %>">logout</a>] |
+		<%= welcome_user %> <%= logged_uname %> [<a href="<%= response.encodeURL("?action=logout") %>">logout</a>] |
 		<%
 		if(logged)  {
-			%>[<a href="<%= response.encodeURL("?nav=Member&site_name=" + site_name) %>"><%= member_nav %></a>]<%
+			%>[<a href="<%= response.encodeURL("?nav=Member") %>"><%= member_nav %></a>]<%
 		}
 		if(logged && (logged_position.equals("User") || logged_position.equals("Administrator")))  {
-			%> | [<a href="<%= response.encodeURL("?nav=User&site_name=" + site_name) %>"><%= user_nav %></a>]<%
+			%> | [<a href="<%= response.encodeURL("?nav=User") %>"><%= user_nav %></a>]<%
 		}
 		if(logged && logged_position.equals("Administrator"))  {
-			%> | [<a href="<%= response.encodeURL("?nav=Admin&site_name=" + site_name) %>"><%= admin_nav %></a>] <%
+			%> | [<a href="<%= response.encodeURL("?nav=Admin") %>"><%= admin_nav %></a>] <%
 		}
 	}
 	%>
@@ -265,7 +264,7 @@ if(request.getParameter("nav") != null)
 </html>
 
 <%
-stmt.executeUpdate("update " + dbPrefix + "site_vars set stats_count = stats_count + 1, stats_total_ms = stats_total_ms + " + load_time + " where varsname = '" + site_name + "'");
+stmt.executeUpdate("update " + dbPrefix + "site_vars set stats_count = stats_count + 1, stats_total_ms = stats_total_ms + " + load_time + " where varsname = '" + siteName + "'");
 
 con.close();
 %>

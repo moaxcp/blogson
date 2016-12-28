@@ -54,7 +54,7 @@ try  {
 	String sql_stats_total_ms = new String();
 	String sql_rss_description = new String();
 
-	rs = stmt.executeQuery("select * from " + dbPrefix + "site_vars where varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("select * from " + dbPrefix + "site_vars where varsname = '" + siteName + "'");
 	while(rs.next())  {
 		sql_varsname = rs.getString("varsname");
 		sql_title = rs.getString("title");
@@ -149,7 +149,7 @@ try  {
 	String activated = new String();
 	String regdate = new String();
 
-	rs = stmt.executeQuery("select * from " + dbPrefix + "member_site where varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("select * from " + dbPrefix + "member_site where varsname = '" + siteName + "'");
 	while(rs.next())  {
 		uname = rs.getString("uname");
 		varsname = rs.getString("varsname");
@@ -179,7 +179,7 @@ try  {
 	String dsign = new String();
 	String varsname = new String();
 
-	rs = stmt.executeQuery("select * from " + dbPrefix + "guestbook where varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("select * from " + dbPrefix + "guestbook where varsname = '" + siteName + "'");
 	while(rs.next())  {
 		guestid = rs.getString("guestid");
 		name = rs.getString("name");
@@ -211,7 +211,7 @@ try  {
 	String cname = new String();
 	String varsname = new String();
 
-	rs = stmt.executeQuery("select * from " + dbPrefix + "news where varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("select * from " + dbPrefix + "news where varsname = '" + siteName + "'");
 	while(rs.next())  {
 		newsid = rs.getString("newsid");
 		sql_title = rs.getString("title");
@@ -242,7 +242,7 @@ try  {
 	String newsid = new String();
 	String varsname = new String();
 
-	rs = stmt.executeQuery("select * from " + dbPrefix + "comment where varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("select * from " + dbPrefix + "comment where varsname = '" + siteName + "'");
 	while(rs.next())  {
 		comid = rs.getString("comid");
 		name = rs.getString("name");
@@ -269,7 +269,7 @@ try  {
 	String sql_style = new String();
 	String varsname = new String();
 
-	rs = stmt.executeQuery("select * from " + dbPrefix + "style where varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("select * from " + dbPrefix + "style where varsname = '" + siteName + "'");
 	while(rs.next())  {
 		stylename = rs.getString("stylename");
 		sql_style = rs.getString("style");

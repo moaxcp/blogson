@@ -22,7 +22,7 @@ if(!logged)  {
 		stmt.executeUpdate(mess);
 
 		mess = "Insert Into " + dbPrefix + "member_site values('" + utilities.filterHTML(request.getParameter("UserName")) +
-			"', '" + site_name +
+			"', '" + siteName +
 			"', 'Member', false, current_timestamp)";
 
 		stmt.executeUpdate(mess);

@@ -1,7 +1,7 @@
 <%
 String agreement = new String();
 
-rs = stmt.executeQuery("SELECT agreement FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+rs = stmt.executeQuery("SELECT agreement FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 if(rs.first())  {
 	agreement = rs.getString("agreement");
 }

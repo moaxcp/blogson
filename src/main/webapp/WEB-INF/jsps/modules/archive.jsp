@@ -17,7 +17,7 @@ if(request.getParameter("news_month") != null && request.getParameter("news_year
 	    <table cellpadding=0 cellspacing=0 border=0 width="100%">
 	<%
 	try  {
-		rs = stmt.executeQuery("SELECT EXTRACT(YEAR FROM postdate) as year, EXTRACT(MONTH FROM postdate) as month, COUNT(newsid) FROM " + dbPrefix + "news where varsname = '" + site_name + "' GROUP BY year, month ORDER BY year, month;");
+		rs = stmt.executeQuery("SELECT EXTRACT(YEAR FROM postdate) as year, EXTRACT(MONTH FROM postdate) as month, COUNT(newsid) FROM " + dbPrefix + "news where varsname = '" + siteName + "' GROUP BY year, month ORDER BY year, month;");
 
 		if(rs.first())  {
 			rs.previous();
@@ -34,12 +34,12 @@ if(request.getParameter("news_month") != null && request.getParameter("news_year
 				<%
 				if(amonth.equals(news_month) && ayear.equals(news_year))  {
 					%>
-					<a class="sideModule_links_active" href="<%= response.encodeURL("?news_month=" + amonth + "&news_year=" + ayear + "&site_name=" + site_name) %>">
+					<a class="sideModule_links_active" href="<%= response.encodeURL("?news_month=" + amonth + "&news_year=" + ayear) %>">
 					<%
 				}
 				else  {
 					%>
-					<a class="sideModule_links" href="<%= response.encodeURL("?news_month=" + amonth + "&news_year=" + ayear + "&site_name=" + site_name) %>">
+					<a class="sideModule_links" href="<%= response.encodeURL("?news_month=" + amonth + "&news_year=" + ayear) %>">
 					<%
 				}
 				%>

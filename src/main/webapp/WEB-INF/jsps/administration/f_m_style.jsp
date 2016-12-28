@@ -1,7 +1,7 @@
 <%
 try  {
 	String mess = "UPDATE " + dbPrefix + "site_vars SET style = '" + utilities.filterForSQL(request.getParameter("style")) + "'" +
-		" WHERE varsname = '" + site_name + "'";
+		" WHERE varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your style has been saved successfuly!";

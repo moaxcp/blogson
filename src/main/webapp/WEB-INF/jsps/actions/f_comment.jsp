@@ -7,7 +7,7 @@ try  {
 		"', '" + utilities.filterHTML(request.getParameter("homepage")) +
 		"', '" + utilities.filterForSQL(request.getParameter("comment")) +
 		"', current_timestamp, " + request.getParameter("news_id") +
-		", '" + site_name + "')";
+		", '" + siteName + "')";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your comment has been successful!";

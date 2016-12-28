@@ -13,7 +13,7 @@ int inc = 25;
 if(request.getParameter("start") != null && Integer.valueOf(request.getParameter("start")).intValue() >= 0)
 	start = Integer.valueOf(request.getParameter("start")).intValue();
 
-rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 if(rs.first())  {
 	inc = rs.getInt("nummember");
 }
@@ -24,7 +24,7 @@ else  {
 	return;
 }
 
-rs = stmt.executeQuery("Select * FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site where varsname = '" + site_name + "' ORDER BY regdate desc limit " + inc + " offset " + start);
+rs = stmt.executeQuery("Select * FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site where varsname = '" + siteName + "' ORDER BY regdate desc limit " + inc + " offset " + start);
 
 %>
 <table width="100%">
@@ -58,10 +58,10 @@ if(rs.first())  {
 
 			%>
 		  	<tr>
-		  	  <td valign=top class="<%= memCellClass %>"><a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + mem_uname + "&site_name=" + site_name) %>"><%= mem_uname %></a></td>
+		  	  <td valign=top class="<%= memCellClass %>"><a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + mem_uname) %>"><%= mem_uname %></a></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_act %></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_position %></td>
-		  	  <td valign=top class="<%= memCellClass %>">[<a href="<%= response.encodeURL("?nav=" + nav + "&view=e_mem_page&mem_uname=" + mem_uname + "&site_name=" + site_name) %>">page</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("?nav=" + nav + "&view=m_profile&a_uname=" + mem_uname + "&site_name=" + site_name) %>">edit</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("?nav=" + nav + "&view=" + view + "&action=d_member&a_uname=" + mem_uname + "&site_name=" + site_name) %>">delete</a>]</td>
+		  	  <td valign=top class="<%= memCellClass %>">[<a href="<%= response.encodeURL("?nav=" + nav + "&view=e_mem_page&mem_uname=" + mem_uname) %>">page</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("?nav=" + nav + "&view=m_profile&a_uname=" + mem_uname) %>">edit</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("?nav=" + nav + "&view=" + view + "&action=d_member&a_uname=" + mem_uname) %>">delete</a>]</td>
 		  	</tr>
 			<%
 
@@ -76,11 +76,11 @@ if(rs.first())  {
 
 	if(start - inc >= 0)  {
 		%>
-		<a href="<%= response.encodeURL("?nav=Members&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
+		<a href="<%= response.encodeURL("?nav=Members&start=" + (start - inc)) %>"> Previous </a>
 		<%
 	}
 
-	rs = stmt.executeQuery("select count(uname) as c from " + dbPrefix + "member where varsname = '" + site_name + "' and uname in (select uname from " + dbPrefix + "member ORDER BY regdate desc)");
+	rs = stmt.executeQuery("select count(uname) as c from " + dbPrefix + "member where varsname = '" + siteName + "' and uname in (select uname from " + dbPrefix + "member ORDER BY regdate desc)");
 	rs.first();
 
 	%>
@@ -99,12 +99,12 @@ if(rs.first())  {
 	%> of <%= rs.getInt("c") %></span>
 
 	<%
-	rs = stmt.executeQuery("select count(uname) as c from " + dbPrefix + "member where varsname = '" + site_name + "' and uname in (select uname from " + dbPrefix + "member ORDER BY regdate desc limit " + inc + " offset " + (start + inc) + ")");
+	rs = stmt.executeQuery("select count(uname) as c from " + dbPrefix + "member where varsname = '" + siteName + "' and uname in (select uname from " + dbPrefix + "member ORDER BY regdate desc limit " + inc + " offset " + (start + inc) + ")");
 	rs.first();
 
 	if(rs.getInt("c") > 0)  {
 		%>
-		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Members&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
+		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Members&start=" + (start + inc)) %>"> Next </a></span>
 		<%
 	}
 	%>

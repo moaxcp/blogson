@@ -1,4 +1,4 @@
-[<a href="<%= response.encodeURL("?nav=Guestbook&view=s_guestbook&site_name=" + site_name ) %>"><%= sign_guestbook_link %></a>]<br>
+[<a href="<%= response.encodeURL("?nav=Guestbook&view=s_guestbook") %>"><%= sign_guestbook_link %></a>]<br>
 <br>
 
 <%
@@ -8,7 +8,7 @@ int inc = 25;
 if(request.getParameter("start") != null && Integer.valueOf(request.getParameter("start")).intValue() >= 0)
 	start = Integer.valueOf(request.getParameter("start")).intValue();
 
-rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 if(rs.first())  {
 	inc = rs.getInt("numguestbook");
 }
@@ -19,7 +19,7 @@ else  {
 	return;
 }
 
-rs = stmt.executeQuery("Select guestid, name, email, website, comment, question, answer, dsign, EXTRACT(DAY FROM dsign) as d, EXTRACT(MONTH FROM dsign) as m, EXTRACT(YEAR FROM dsign) as y FROM " + dbPrefix + "guestbook where varsname = '" + site_name + "' ORDER BY dsign desc limit " + inc + " offset " + start);
+rs = stmt.executeQuery("Select guestid, name, email, website, comment, question, answer, dsign, EXTRACT(DAY FROM dsign) as d, EXTRACT(MONTH FROM dsign) as m, EXTRACT(YEAR FROM dsign) as y FROM " + dbPrefix + "guestbook where varsname = '" + siteName + "' ORDER BY dsign desc limit " + inc + " offset " + start);
 
 if(rs.first())  {
 	rs.previous();
@@ -86,7 +86,7 @@ if(rs.first())  {
 					<%
 					if(logged_position.equals("Administrator"))  {
 						%>
-						[<a href="<%= response.encodeURL("?nav=Admin&view=e_guestbook&guestid=" + guest_id + "&site_name=" + site_name) %>">edit</a>] [<a href="<%= response.encodeURL("?nav=Guestbook&action=d_guestbook&g_id=" + guest_id + "&site_name=" + site_name) %>">delete</a>]
+						[<a href="<%= response.encodeURL("?nav=Admin&view=e_guestbook&guestid=" + guest_id) %>">edit</a>] [<a href="<%= response.encodeURL("?nav=Guestbook&action=d_guestbook&g_id=" + guest_id) %>">delete</a>]
 						<%
 					}
 					%>
@@ -103,11 +103,11 @@ if(rs.first())  {
 
 	if(start - inc >= 0)  {
 		%>
-		<a href="<%= response.encodeURL("?nav=Guestbook&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
+		<a href="<%= response.encodeURL("?nav=Guestbook&start=" + (start - inc)) %>"> Previous </a>
 		<%
 	}
 
-	rs = stmt.executeQuery("select count(guestid) as c from " + dbPrefix + "guestbook where varsname = '" + site_name + "' and guestid in (select guestid from " + dbPrefix + "guestbook ORDER BY dsign desc)");
+	rs = stmt.executeQuery("select count(guestid) as c from " + dbPrefix + "guestbook where varsname = '" + siteName + "' and guestid in (select guestid from " + dbPrefix + "guestbook ORDER BY dsign desc)");
 	rs.first();
 
 	%>
@@ -126,12 +126,12 @@ if(rs.first())  {
 	%> of <%= rs.getInt("c") %></span>
 
 	<%
-	rs = stmt.executeQuery("select count(guestid) as c from " + dbPrefix + "guestbook where varsname = '" + site_name + "' and guestid in (select guestid from " + dbPrefix + "guestbook ORDER BY dsign desc limit " + inc + " offset " + (start + inc) + ")");
+	rs = stmt.executeQuery("select count(guestid) as c from " + dbPrefix + "guestbook where varsname = '" + siteName + "' and guestid in (select guestid from " + dbPrefix + "guestbook ORDER BY dsign desc limit " + inc + " offset " + (start + inc) + ")");
 	rs.first();
 
 	if(rs.getInt("c") > 0)  {
 		%>
-		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Guestbook&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
+		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Guestbook&start=" + (start + inc)) %>"> Next </a></span>
 		<%
 	}
 }

@@ -10,7 +10,7 @@ if(request.getParameter("password") != null)
 
 try  {
 
-	rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site WHERE uname = '" + logged_uname + "' AND passw = '" + log_pass + "' AND activated = true and varsname = '" + site_name + "'");
+	rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site WHERE uname = '" + logged_uname + "' AND passw = '" + log_pass + "' AND activated = true and varsname = '" + siteName + "'");
 
 	if(rs.first())  {
 		logged_position = rs.getString("job");

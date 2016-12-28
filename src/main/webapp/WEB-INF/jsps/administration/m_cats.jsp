@@ -7,7 +7,7 @@
     <td class="mainModuleItemContent">
 <%
 
-rs = stmt.executeQuery("Select distinct cname FROM " + dbPrefix + "news where varsname = '" + site_name + "'");
+rs = stmt.executeQuery("Select distinct cname FROM " + dbPrefix + "news where varsname = '" + siteName + "'");
 
 if(rs.first())  {
 	rs.previous();
@@ -47,7 +47,7 @@ if(rs.first())  {
 	  The following function can be used to edit the categories for news posts.<br>
 	  <br>
 	  Change Category Name:<br>
-	  <form name="m_cats"  onsubmit="return validate_form(m_cats)" method="POST" action="<%= response.encodeURL("?action=f_m_cats&nav=Admin&view=m_cats&site_name=" + site_name) %>">
+	  <form name="m_cats"  onsubmit="return validate_form(m_cats)" method="POST" action="<%= response.encodeURL("?action=f_m_cats&nav=Admin&view=m_cats") %>">
 	    Category:&nbsp;<input name="category" type="text"><br>New Name:&nbsp;<input name="new_category" type="text"><br><input type="submit" value="Submit">
 	  </form>
 	</td>

@@ -8,7 +8,7 @@ try  {
 	if(request.getParameter("comid") != null)
 		comid = request.getParameter("comid");
 
-	String mess = "DELETE FROM " + dbPrefix + "comment WHERE varsname = '" + site_name + "' and comid = '" + comid + "'";
+	String mess = "DELETE FROM " + dbPrefix + "comment WHERE varsname = '" + siteName + "' and comid = '" + comid + "'";
 	del = stmt.executeUpdate(mess);
 
 	if(del > 0)  {	

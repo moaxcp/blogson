@@ -13,7 +13,7 @@
 
 		try  {
 
-			rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+			rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 
 			if(rs.first())  {
 
@@ -32,7 +32,7 @@
 				admin_signed_title = rs.getString("signed_title");
 
 
-				%><form name="m_titles" onsubmit="return validate_form(m_titles)" method="POST" action="<%= response.encodeURL("?action=f_titles&nav=Admin&view=m_titles&site_name=" + site_name) %>">
+				%><form name="m_titles" onsubmit="return validate_form(m_titles)" method="POST" action="<%= response.encodeURL("?action=f_titles&nav=Admin&view=m_titles") %>">
 				  <table width="100%">
 				  <tr>
 				    <td valign=top>Home Navigation:</td>

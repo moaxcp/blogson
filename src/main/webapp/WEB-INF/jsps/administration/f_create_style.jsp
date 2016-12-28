@@ -11,7 +11,7 @@ if(request.getParameter("style") != null)
 	try  {
 		String mess = "insert into " + dbPrefix + "style values('" + stylename +
 			"', '" + newstyle +
-			"', '" + site_name + "')";
+			"', '" + siteName + "')";
 
 		stmt.executeUpdate(mess);
 		site_message = "Style has been created: " + stylename + "!";

@@ -19,7 +19,7 @@ if(rs.first())  {
 %>
 
 <br />
-<form name="e_page" onsubmit="return validate_form(e_page)" method="POST" action="<%= response.encodeURL("?action=f_e_mem_page&nav=" + nav + "&view=e_mem_page&mem_uname=" + mem_uname + "&site_name=" + site_name) %>">
+<form name="e_page" onsubmit="return validate_form(e_page)" method="POST" action="<%= response.encodeURL("?action=f_e_mem_page&nav=" + nav + "&view=e_mem_page&mem_uname=" + mem_uname) %>">
       <table border=0 cellspacing=0 cellpadding=3>
 	  <tr>
 	    <td valign=top>Page:<br><input type="button" value="count" onclick="alert('Style is ' + ffff.value.length + ' characters long.')"></td>

@@ -1,7 +1,7 @@
 <%
 try  {
 	String mess = "UPDATE " + dbPrefix + "site_vars SET agreement = '" + utilities.filterForSQL(request.getParameter("agreement")) + "'" +
-		" WHERE varsname = '"+ site_name + "'";
+		" WHERE varsname = '"+ siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your agreement has been saved successfuly!";

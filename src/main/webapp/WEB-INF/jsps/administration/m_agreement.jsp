@@ -5,7 +5,7 @@
   </tr>
   <tr>
     <td class="mainModuleItemContent">
-<form name="m_agreement"  onsubmit="return validate_form(m_agreement)" method="POST" action="<%= response.encodeURL("?action=f_m_agreement&nav=Admin&view=m_agreement&site_name=" + site_name) %>">
+<form name="m_agreement"  onsubmit="return validate_form(m_agreement)" method="POST" action="<%= response.encodeURL("?action=f_m_agreement&nav=Admin&view=m_agreement") %>">
       <table width="100%">
 
 	<%
@@ -14,7 +14,7 @@
 
 		try  {
 
-			rs = stmt.executeQuery("SELECT agreement FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+			rs = stmt.executeQuery("SELECT agreement FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 
 			if(rs.first())  {
 

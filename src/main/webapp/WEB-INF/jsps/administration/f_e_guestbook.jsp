@@ -10,7 +10,7 @@ try  {
 		"website = '" + utilities.filterHTML(request.getParameter("website")) + "', " +
 		"comment = '" + utilities.filterHTML(request.getParameter("comment")) + "', " +
 		"answer = '" + utilities.filterHTML(request.getParameter("answer")) + "' " +
-		" WHERE varsname = '" + site_name + "' and guestid = " + gid;
+		" WHERE varsname = '" + siteName + "' and guestid = " + gid;
 	System.out.println(mess);
 	stmt.executeUpdate(mess);
 	site_message = "The guestbook has been updated!";

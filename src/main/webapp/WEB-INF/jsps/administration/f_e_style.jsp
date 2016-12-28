@@ -10,7 +10,7 @@ if(request.getParameter("style") != null)
 
 	try  {
 		String mess = "update " + dbPrefix + "style set style = '" + newstyle +
-			"' where stylename = '" + stylename + "' and varsname = '" + site_name + "'";
+			"' where stylename = '" + stylename + "' and varsname = '" + siteName + "'";
 
 		stmt.executeUpdate(mess);
 		site_message = "Style has been edited " + stylename + "!";

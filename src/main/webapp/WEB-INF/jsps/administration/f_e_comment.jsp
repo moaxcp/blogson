@@ -9,7 +9,7 @@ try  {
 		"email = '" + utilities.filterHTML(request.getParameter("email")) + "', " +
 		"homepage = '" + utilities.filterHTML(request.getParameter("homepage")) + "', " +
 		"comment = '" + utilities.filterForSQL(request.getParameter("comment")) + "'" +
-		" WHERE varsname = '" + site_name + "' and comid = " + comid;
+		" WHERE varsname = '" + siteName + "' and comid = " + comid;
 	stmt.executeUpdate(mess);
 	site_message = "The comment has been updated!";
 }

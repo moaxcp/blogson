@@ -1,7 +1,7 @@
 <%
 try  {
 	String mess = "UPDATE " + dbPrefix + "site_vars SET right_side = '" + utilities.filterForSQL(request.getParameter("right_side")) + "'" +
-		" WHERE varsname = '" + site_name + "'";
+		" WHERE varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your right side has been saved successfuly!";

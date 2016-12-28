@@ -24,7 +24,7 @@ try  {
 
 		mess = "UPDATE " + dbPrefix + "member_site set job = '" + request.getParameter("position") +
 		"', activated = " + request.getParameter("activated") + " " +
-		"where uname = '" + a_uname + "' and varsname = '" + site_name + "'";
+		"where uname = '" + a_uname + "' and varsname = '" + siteName + "'";
 		stmt.executeUpdate(mess);
 
 		site_message = "The profile(" + a_uname + ") has been saved successfuly!";

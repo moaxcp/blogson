@@ -15,7 +15,7 @@ try  {
 		"nummember = " + request.getParameter("nummember") + ", " +
 		"gbookquestion = '" + utilities.filterForSQL(request.getParameter("gbookquestion")) + "', " +
 		"metatags = '" + utilities.filterForSQL(request.getParameter("metatags")) + "'" +
-		" WHERE varsname = '" + site_name + "'";
+		" WHERE varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your site variables have been saved successfuly!";

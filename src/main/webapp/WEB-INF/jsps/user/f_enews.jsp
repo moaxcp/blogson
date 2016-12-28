@@ -16,7 +16,7 @@ try  {
 	String mess = "update " + dbPrefix + "news set title='" + utilities.filterHTML(request.getParameter("title")) +
 		"', content='" + utilities.filterForSQL(request.getParameter("news")) +
 		"', cname='" + utilities.filterHTML(request.getParameter("category")) +
-		"' where newsid=" + newsid + " and uname = '" + logged_uname + "' and varsname = '" + site_name + "'";
+		"' where newsid=" + newsid + " and uname = '" + logged_uname + "' and varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your edit has been successful!";

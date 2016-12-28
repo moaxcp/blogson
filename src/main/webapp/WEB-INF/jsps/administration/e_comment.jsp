@@ -11,7 +11,7 @@ else  {
 	return;
 }
 
-rs = stmt.executeQuery("Select * FROM " + dbPrefix + "comment where varsname = '" + site_name + "' and comid = " + comid);
+rs = stmt.executeQuery("Select * FROM " + dbPrefix + "comment where varsname = '" + siteName + "' and comid = " + comid);
 
 String comment_name, comment_email, comment_homepage, comment_comment, comment_newsid;
 
@@ -22,7 +22,7 @@ if(rs.first())  {
 	comment_comment = rs.getString("comment");
 	comment_newsid = rs.getString("newsid");
 %>
-<form name="e_comment" onsubmit="return validate_form(e_comment)" method="POST" action="<%= response.encodeURL("?nav=Home&view=news_post&news_id=" + comment_newsid + "&action=f_e_comment&comid=" + comid + "&site_name=" + site_name) %>">
+<form name="e_comment" onsubmit="return validate_form(e_comment)" method="POST" action="<%= response.encodeURL("?nav=Home&view=news_post&news_id=" + comment_newsid + "&action=f_e_comment&comid=" + comid) %>">
   <table class="mainModuleItem">
     <tr>
       <td class="mainModuleItemTitle">Edit Comment</td>

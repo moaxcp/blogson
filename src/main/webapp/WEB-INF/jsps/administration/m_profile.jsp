@@ -11,7 +11,7 @@
 		a_uname = request.getParameter("a_uname");
 %>
 
-<form name="m_profile" onsubmit="return validate_form(m_profile)" method="POST" action="<%= response.encodeURL("?action=f_m_profile&nav=" + nav + "&view=" + view + "&a_uname=" + a_uname + "&site_name=" + site_name) %>">
+<form name="m_profile" onsubmit="return validate_form(m_profile)" method="POST" action="<%= response.encodeURL("?action=f_m_profile&nav=" + nav + "&view=" + view + "&a_uname=" + a_uname) %>">
       <table width="100%">
 
 	<%
@@ -21,7 +21,7 @@
 
 		try  {
 
-			rs = stmt.executeQuery("Select fname, lname, minit, passw, uname, regdate, job, email, activated, website, info, bday, gender, EXTRACT(DAY FROM bday) as b_day, EXTRACT(MONTH FROM bday) as b_month, EXTRACT(YEAR FROM bday) as b_year FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site WHERE varsname = '" + site_name + "' and uname ='" + a_uname + "'");
+			rs = stmt.executeQuery("Select fname, lname, minit, passw, uname, regdate, job, email, activated, website, info, bday, gender, EXTRACT(DAY FROM bday) as b_day, EXTRACT(MONTH FROM bday) as b_month, EXTRACT(YEAR FROM bday) as b_year FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site WHERE varsname = '" + siteName + "' and uname ='" + a_uname + "'");
 
 			if(rs.first())  {
 
@@ -49,7 +49,7 @@
 				  </tr>
 				  <tr>
 				    <td>User Page:</td>
-				    <td>[<a href="<%= response.encodeURL("?nav=" + nav + "&view=e_mem_page&mem_uname=" + uname + "&site_name=" + site_name) %>">Edit</a>]</td>
+				    <td>[<a href="<%= response.encodeURL("?nav=" + nav + "&view=e_mem_page&mem_uname=" + uname) %>">Edit</a>]</td>
 				  </tr>
 				  <tr>
 				    <td>First Name:</td>

@@ -234,7 +234,7 @@ String blue_style = "<style type=\"text/css\">\n" +
 
 try  {
 	String mess = "UPDATE " + dbPrefix + "site_vars SET style = '" + utilities.filterForSQL(blue_style) + "'" +
-		" WHERE varsname = '" + site_name + "'";
+		" WHERE varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your style has been changed to Blue!";

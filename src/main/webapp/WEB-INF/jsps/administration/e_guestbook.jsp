@@ -11,7 +11,7 @@ String dsign = new String();
 if(request.getParameter("guestid") != null)
 		guestid = request.getParameter("guestid");
 
-rs = stmt.executeQuery("select * from " + dbPrefix + "guestbook where varsname = '" + site_name + "' and guestid = " + guestid);
+rs = stmt.executeQuery("select * from " + dbPrefix + "guestbook where varsname = '" + siteName + "' and guestid = " + guestid);
 
 if(rs.first())  {
 	name = rs.getString("name");
@@ -30,7 +30,7 @@ else  {
 }
 %>
 
-<form name="e_guestbook" onsubmit="return validate_form(e_guestbook)" method="POST" action="<%= response.encodeURL("?nav=Guestbook&action=f_e_guestbook&guestid=" + guestid + "&site_name=" + site_name) %>">
+<form name="e_guestbook" onsubmit="return validate_form(e_guestbook)" method="POST" action="<%= response.encodeURL("?nav=Guestbook&action=f_e_guestbook&guestid=" + guestid) %>">
   <table class="mainModuleItem">
     <tr>
       <td class="mainModuleItemTitle">Edit Guestbook</td>

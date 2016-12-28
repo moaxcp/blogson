@@ -6,13 +6,13 @@
 			newsid = Integer.valueOf(request.getParameter("newsid")).intValue();
 
 		if(logged_position.equals("Administrator"))  {
-			rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "news JOIN " + dbPrefix + "member ON " + dbPrefix + "news.uname = " + dbPrefix + "member.uname WHERE " + dbPrefix + "news.varsname = '" + site_name + "' and newsid = " + newsid);
+			rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "news JOIN " + dbPrefix + "member ON " + dbPrefix + "news.uname = " + dbPrefix + "member.uname WHERE " + dbPrefix + "news.varsname = '" + siteName + "' and newsid = " + newsid);
 			if(rs.first())  {
 				logged_uname = rs.getString("uname");
 			}
 		}
 
-		rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "news WHERE newsid = " + newsid + " AND uname = '" + logged_uname + "' and varsname = '" + site_name + "'");
+		rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "news WHERE newsid = " + newsid + " AND uname = '" + logged_uname + "' and varsname = '" + siteName + "'");
 		if(rs.first())  {
 			String news_newsid, news_title, news_content, news_ddate, news_mdate, news_ydate, news_hdate, news_mindate, news_uname, news_comments, news_cname;
 			news_newsid = rs.getString("newsid");
@@ -27,7 +27,7 @@
 	  </tr>
 	  <tr>
 	    <td class="mainModuleItemContent">
-      <form name="e_news"  onsubmit="return validate_form(e_news)" method="POST" action="<%= response.encodeURL("?action=f_enews&nav=Home&newsid=" + newsid + "&site_name=" + site_name) %>">
+      <form name="e_news"  onsubmit="return validate_form(e_news)" method="POST" action="<%= response.encodeURL("?action=f_enews&nav=Home&newsid=" + newsid) %>">
       <table>
 	<tr>
 	  <td colspan=2>Warning! HTML code is accepted.  Do not post html that could screw up the page. ex. &lt;/table&gt;</td>
@@ -50,7 +50,7 @@
 	  <td>Categories:</td>
 	  <td>
 	<%
-	rs = stmt.executeQuery("SELECT cname FROM " + dbPrefix + "news where varsname = '" + site_name + "' group by cname");
+	rs = stmt.executeQuery("SELECT cname FROM " + dbPrefix + "news where varsname = '" + siteName + "' group by cname");
 	if(rs.first())  {
 		rs.previous();
 

@@ -14,7 +14,7 @@
 
 		try  {
 
-			rs = stmt.executeQuery("Select fname, lname, minit, passw, uname, regdate, job, email, activated, website, info, bday, gender, EXTRACT(DAY FROM bday) as b_day, EXTRACT(MONTH FROM bday) as b_month, EXTRACT(YEAR FROM bday) as b_year FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site WHERE uname ='" + logged_uname + "' and varsname = '" + site_name + "'");
+			rs = stmt.executeQuery("Select fname, lname, minit, passw, uname, regdate, job, email, activated, website, info, bday, gender, EXTRACT(DAY FROM bday) as b_day, EXTRACT(MONTH FROM bday) as b_month, EXTRACT(YEAR FROM bday) as b_year FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site WHERE uname ='" + logged_uname + "' and varsname = '" + siteName + "'");
 
 			if(rs.first())  {
 
@@ -36,7 +36,7 @@
 				birthday = rs.getString("bday");
 
 				%>
-				<form name="profile"  onsubmit="return validate_form(profile)" method="POST" action="<%= response.encodeURL("?action=f_profile&nav=Member&view=profile&site_name=" + site_name) %>">
+				<form name="profile"  onsubmit="return validate_form(profile)" method="POST" action="<%= response.encodeURL("?action=f_profile&nav=Member&view=profile") %>">
 				<table>
 				  <tr>
 				    <td>User Name</td>

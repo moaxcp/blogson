@@ -431,7 +431,7 @@ border: 1px solid #333333;
 
 try  {
 	String mess = "UPDATE " + dbPrefix + "site_vars SET style = '" + utilities.filterForSQL(purple_style) + "'" +
-		" WHERE varsname = '" + site_name + "'";
+		" WHERE varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your style has been changed to Purple!";

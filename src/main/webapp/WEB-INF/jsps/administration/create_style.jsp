@@ -5,7 +5,7 @@
   <tr>
     <td class="mainModuleItemContent">
 <br />
-<form name="create_style" onsubmit="return validate_form(create_style)" method="POST" action="<%= response.encodeURL("?action=f_create_style&nav=Admin&view=all_styles&site_name=" + site_name) %>">
+<form name="create_style" onsubmit="return validate_form(create_style)" method="POST" action="<%= response.encodeURL("?action=f_create_style&nav=Admin&view=all_styles") %>">
       <table border=0 cellspacing=0 cellpadding=3>
 	  <tr>
 	    <td valign="top">Style&nbsp;Name:</td>

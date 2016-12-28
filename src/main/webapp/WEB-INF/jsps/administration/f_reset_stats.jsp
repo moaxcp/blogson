@@ -1,6 +1,6 @@
 <%
 try  {
-	String mess = "UPDATE " + dbPrefix + "site_vars SET stats_date = current_timestamp, stats_count = 0, stats_total_ms = 0 WHERE varsname = '" + site_name + "'";
+	String mess = "UPDATE " + dbPrefix + "site_vars SET stats_date = current_timestamp, stats_count = 0, stats_total_ms = 0 WHERE varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your stats has been reset!";

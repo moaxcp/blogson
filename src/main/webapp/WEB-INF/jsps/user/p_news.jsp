@@ -6,7 +6,7 @@
   <tr>
     <td class="mainModuleItemContent">
       <br>
-      <form name="p_news" onsubmit="return validate_form(p_news)" method="POST" action="<%= response.encodeURL("?action=f_news&nav=Home&site_name=" + site_name) %>">
+      <form name="p_news" onsubmit="return validate_form(p_news)" method="POST" action="<%= response.encodeURL("?action=f_news&nav=Home") %>">
       <table>
 	<tr>
 	  <td>Title:</td>
@@ -30,7 +30,7 @@
 	  <td>Categories:</td>
 	  <td>
 	<%
-	rs = stmt.executeQuery("SELECT cname FROM " + dbPrefix + "news where varsname = '" + site_name + "' group by cname");
+	rs = stmt.executeQuery("SELECT cname FROM " + dbPrefix + "news where varsname = '" + siteName + "' group by cname");
 	if(rs.first())  {
 		rs.previous();
 

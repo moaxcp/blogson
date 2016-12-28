@@ -8,7 +8,7 @@ try  {
 			newsid = Integer.valueOf(request.getParameter("newsid")).intValue();
 
 
-	String mess = "DELETE FROM " + dbPrefix + "comment where newsid = " + newsid + " and varsname = '" + site_name + "'";
+	String mess = "DELETE FROM " + dbPrefix + "comment where newsid = " + newsid + " and varsname = '" + siteName + "'";
 	int del = stmt.executeUpdate(mess);
 
 	if(del > 0)  {	
@@ -19,7 +19,7 @@ try  {
 	    site_message = "Did not delete any comments<br>";
 	}
 
-	mess = "DELETE FROM " + dbPrefix + "news WHERE newsid = " + newsid + " AND uname = '" + logged_uname + "' and varsname = '" + site_name + "'";
+	mess = "DELETE FROM " + dbPrefix + "news WHERE newsid = " + newsid + " AND uname = '" + logged_uname + "' and varsname = '" + siteName + "'";
 
 	del = stmt.executeUpdate(mess);
 

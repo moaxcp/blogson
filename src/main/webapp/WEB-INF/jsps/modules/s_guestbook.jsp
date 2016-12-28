@@ -1,7 +1,7 @@
 <%
 String guestbook_question = new String();
 
-rs = stmt.executeQuery("select gbookquestion from " + dbPrefix + "site_vars where varsname = '" + site_name + "'");
+rs = stmt.executeQuery("select gbookquestion from " + dbPrefix + "site_vars where varsname = '" + siteName + "'");
 
 if(rs.first())  {
 	guestbook_question = rs.getString("gbookquestion");
@@ -14,7 +14,7 @@ else  {
 }
 %>
 
-<form name="s_guestbook"  onsubmit="return validate_form(sign_guestbook)" method="POST" action="<%= response.encodeURL("?nav=Guestbook&action=f_guestbook&site_name=" + site_name) %>">
+<form name="s_guestbook"  onsubmit="return validate_form(sign_guestbook)" method="POST" action="<%= response.encodeURL("?nav=Guestbook&action=f_guestbook") %>">
   <table class="mainModuleItem">
     <tr>
       <td class="mainModuleItemTitle">Sign Guestbook</td>

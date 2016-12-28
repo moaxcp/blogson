@@ -1,4 +1,4 @@
-<form name="add_comment" onsubmit="return validate_form(add_comment)" method="POST" action="<%= response.encodeURL("?nav=Home&action=f_comment&view=news_post&news_id=" + news_id + "&site_name=" + site_name) %>">
+<form name="add_comment" onsubmit="return validate_form(add_comment)" method="POST" action="<%= response.encodeURL("?nav=Home&action=f_comment&view=news_post&news_id=" + news_id) %>">
   <table class="mainModuleItem">
     <tr>
       <td class="mainModuleItemTitle">Add <%= comment_title %></td>

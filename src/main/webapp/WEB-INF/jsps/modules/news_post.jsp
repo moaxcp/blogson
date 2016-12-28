@@ -18,7 +18,7 @@ else  {
 
 
 // select news.newsid, news.title, news.content, news.postdate, news.uname, EXTRACT(DAY FROM news.postdate) as d, EXTRACT(MONTH FROM news.postdate) as m, EXTRACT(HOUR FROM news.postdate) as h, EXTRACT(MINUTE FROM news.postdate) as min, EXTRACT(YEAR FROM news.postdate) as y, count(comid) from jblogrc2_news as news join jblogrc2_comment as comment on news.newsid = comment.newsid group by news.newsid, news.title, news.content, news.postdate, news.uname, y, m, d, h, min order by news.postdate desc;
-rs = stmt.executeQuery("Select news.newsid, news.title, news.content, news.postdate, news.uname, EXTRACT(DAY FROM news.postdate) as d, EXTRACT(MONTH FROM news.postdate) as m, EXTRACT(HOUR FROM news.postdate) as h, EXTRACT(MINUTE FROM news.postdate) as min, EXTRACT(YEAR FROM news.postdate) as y, count(comid) FROM " + dbPrefix + "news AS news left outer join " + dbPrefix + "comment as comment on news.newsid=comment.newsid where news.newsid = " + news_id + " and news.varsname = '" + site_name + "' group by news.newsid, news.title, news.content, news.postdate, news.uname, y, m, d, h, min order by news.postdate DESC limit 1");
+rs = stmt.executeQuery("Select news.newsid, news.title, news.content, news.postdate, news.uname, EXTRACT(DAY FROM news.postdate) as d, EXTRACT(MONTH FROM news.postdate) as m, EXTRACT(HOUR FROM news.postdate) as h, EXTRACT(MINUTE FROM news.postdate) as min, EXTRACT(YEAR FROM news.postdate) as y, count(comid) FROM " + dbPrefix + "news AS news left outer join " + dbPrefix + "comment as comment on news.newsid=comment.newsid where news.newsid = " + news_id + " and news.varsname = '" + siteName + "' group by news.newsid, news.title, news.content, news.postdate, news.uname, y, m, d, h, min order by news.postdate DESC limit 1");
 
 String news_newsid, news_title, news_content, news_ddate, news_mdate, news_ydate, news_hdate, news_mindate, news_uname, news_comments;
 
@@ -38,7 +38,7 @@ if(rs.first())  {
 	 	<table class="mainModuleItem">
 		  <tr>
 		    <td class="mainModuleItemTitle">
-		      <span style="float:left;position:relative"><a href="<%= response.encodeURL("?view=news_post&news_id=" + news_newsid + "&site_name=" + site_name) %>"><%= news_title %></a></span>
+		      <span style="float:left;position:relative"><a href="<%= response.encodeURL("?view=news_post&news_id=" + news_newsid) %>"><%= news_title %></a></span>
 		      <span style="float:right;position:relative">
 				
 		      </span>
@@ -51,7 +51,7 @@ if(rs.first())  {
 		  </tr>
 		  <tr>
 		    <td class="mainModuleItemSubTitle">
-		      <span style="float:left;position:relative">Posted <%= news_mdate %>/<%= news_ddate %>/<%= news_ydate %> - <%= news_hdate %>:<%= news_mindate %> by <a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + news_uname + "&site_name=" + site_name) %>"><%= news_uname %></a></span>
+		      <span style="float:left;position:relative">Posted <%= news_mdate %>/<%= news_ddate %>/<%= news_ydate %> - <%= news_hdate %>:<%= news_mindate %> by <a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + news_uname) %>"><%= news_uname %></a></span>
 		      <span style="float:right;position:relative"><a href="#comments"><%= comment_title %>s(<%= news_comments %>)</a></span>
 		    </td>
 		  </tr>
@@ -71,7 +71,7 @@ int inc = 10;
 if(request.getParameter("start") != null && Integer.valueOf(request.getParameter("start")).intValue() >= 0)
 	start = Integer.valueOf(request.getParameter("start")).intValue();
 
-rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 if(rs.first())  {
 	inc = rs.getInt("numcomment");
 }
@@ -83,7 +83,7 @@ else  {
 }
 
 
-rs = stmt.executeQuery("Select c.comid, c.name, c.email, c.homepage, c.comment, EXTRACT(DAY FROM c.comdate) as d, EXTRACT(MONTH FROM c.comdate) as m, EXTRACT(HOUR FROM c.comdate) as h, EXTRACT(MINUTE FROM c.comdate) as min, EXTRACT(YEAR FROM c.comdate) as y, c.newsid FROM " + dbPrefix + "comment AS c where c.newsid = " + news_id + " and varsname = '" + site_name + "' ORDER BY c.comdate limit " + inc + " offset " + start);
+rs = stmt.executeQuery("Select c.comid, c.name, c.email, c.homepage, c.comment, EXTRACT(DAY FROM c.comdate) as d, EXTRACT(MONTH FROM c.comdate) as m, EXTRACT(HOUR FROM c.comdate) as h, EXTRACT(MINUTE FROM c.comdate) as min, EXTRACT(YEAR FROM c.comdate) as y, c.newsid FROM " + dbPrefix + "comment AS c where c.newsid = " + news_id + " and varsname = '" + siteName + "' ORDER BY c.comdate limit " + inc + " offset " + start);
 
 String comment_comid, comment_name, comment_email, comment_homepage, comment_comment, comment_newsid, comment_d, comment_m, comment_h, comment_min, comment_y;
 
@@ -122,7 +122,7 @@ while(rs.next())  {
 			&nbsp;
 		    </td>
 		    <td class="sideModuleTitle">
-			<a href="<%= response.encodeURL("?nav=Admin&view=e_comment&comid=" + comment_comid + "&site_name=" + site_name) %>">edit</a>&nbsp;&nbsp;<a href="<%= response.encodeURL("?view=news_post&action=d_comment&comid=" + comment_comid + "&news_id=" + news_id + "&start=" + start + "&site_name=" + site_name) %>">delete</a>
+			<a href="<%= response.encodeURL("?nav=Admin&view=e_comment&comid=" + comment_comid) %>">edit</a>&nbsp;&nbsp;<a href="<%= response.encodeURL("?view=news_post&action=d_comment&comid=" + comment_comid + "&news_id=" + news_id + "&start=" + start) %>">delete</a>
 		    </td>
 		  </tr>
 		  <%
@@ -138,11 +138,11 @@ while(rs.next())  {
 
 if(start - inc >= 0)  {
 	%>
-	<a href="<%= response.encodeURL("?view=news_post&news_id=" + news_id + "&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
+	<a href="<%= response.encodeURL("?view=news_post&news_id=" + news_id + "&start=" + (start - inc)) %>"> Previous </a>
 	<%
 }
 
-rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where varsname = '" + site_name + "' and comid in (select comid from " + dbPrefix + "comment where newsid = " + news_id + " ORDER BY comdate desc)");
+rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where varsname = '" + siteName + "' and comid in (select comid from " + dbPrefix + "comment where newsid = " + news_id + " ORDER BY comdate desc)");
 rs.first();
 
 %>
@@ -161,12 +161,12 @@ else  {
 %> of <%= rs.getInt("c") %></span>
 
 <%
-rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where varsname = '" + site_name + "' and comid in (select comid from " + dbPrefix + "comment where newsid = " + news_id + " ORDER BY comdate desc limit " + inc + " offset " + (start + inc) + ")");
+rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where varsname = '" + siteName + "' and comid in (select comid from " + dbPrefix + "comment where newsid = " + news_id + " ORDER BY comdate desc limit " + inc + " offset " + (start + inc) + ")");
 rs.first();
 
 if(rs.getInt("c") > 0)  {
 	%>
-	<span style="float:right;position:relative"><a href="<%= response.encodeURL("?view=news_post&news_id=" + news_id + "&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
+	<span style="float:right;position:relative"><a href="<%= response.encodeURL("?view=news_post&news_id=" + news_id + "&start=" + (start + inc)) %>"> Next </a></span>
 	<%
 }
 %>

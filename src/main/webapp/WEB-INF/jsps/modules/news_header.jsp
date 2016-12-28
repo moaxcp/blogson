@@ -3,7 +3,7 @@ String h_news = new String();
 String m_news = new String();
 String a_news = new String();
 
-rs = stmt.executeQuery("select * from " + dbPrefix + "site_vars where varsname = '" + site_name + "'");
+rs = stmt.executeQuery("select * from " + dbPrefix + "site_vars where varsname = '" + siteName + "'");
 
 if(rs.first())  {
 	h_news = rs.getString("h_news");

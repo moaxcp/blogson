@@ -6,7 +6,7 @@ String mess = "INSERT INTO " + dbPrefix + "guestbook VALUES(nextval('" + dbPrefi
 	"', '" + utilities.filterHTML(request.getParameter("comment")) +
 	"', '" + utilities.filterHTML(request.getParameter("question")) +
 	"', '" + utilities.filterHTML(request.getParameter("answer")) +
-	"', current_timestamp, '" + site_name + "')";
+	"', current_timestamp, '" + siteName + "')";
 
 stmt.executeUpdate(mess);
 

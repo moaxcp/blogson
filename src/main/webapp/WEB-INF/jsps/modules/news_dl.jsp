@@ -3,7 +3,7 @@ News:<br />
 	  	<dl>
 	    <%
 try  {
-	    rs = stmt.executeQuery("Select news.newsid, news.title, news.content, news.postdate, news.uname, EXTRACT(DAY FROM news.postdate) as d, EXTRACT(MONTH FROM news.postdate) as m, EXTRACT(HOUR FROM news.postdate) as h, EXTRACT(MINUTE FROM news.postdate) as min, EXTRACT(YEAR FROM news.postdate) as y, cname, count(comid) FROM " + dbPrefix + "news AS news left outer join " + dbPrefix + "comment as comment on news.newsid=comment.newsid where news.varsname = '" + site_name + "' group by news.newsid, news.title, news.content, news.postdate, news.uname, y, m, d, h, min, cname order by news.postdate DESC limit 10");
+	    rs = stmt.executeQuery("Select news.newsid, news.title, news.content, news.postdate, news.uname, EXTRACT(DAY FROM news.postdate) as d, EXTRACT(MONTH FROM news.postdate) as m, EXTRACT(HOUR FROM news.postdate) as h, EXTRACT(MINUTE FROM news.postdate) as min, EXTRACT(YEAR FROM news.postdate) as y, cname, count(comid) FROM " + dbPrefix + "news AS news left outer join " + dbPrefix + "comment as comment on news.newsid=comment.newsid where news.varsname = '" + siteName + "' group by news.newsid, news.title, news.content, news.postdate, news.uname, y, m, d, h, min, cname order by news.postdate DESC limit 10");
 
 String news_newsid, news_title, news_content, news_ddate, news_mdate, news_ydate, news_hdate, news_mindate, news_uname, news_comments, news_cname;
 String month = new String();
@@ -35,14 +35,14 @@ if(rs.first())  {
 		}
 		%>
 		<dd>
-		<b><a href="<%= response.encodeURL("pages/?view=news_post&news_id=" + news_newsid + "&site_name=main") %>"><%= news_title %></a>:</b>
+		<b><a href="<%= response.encodeURL("pages/?view=news_post&news_id=" + news_newsid) %>"><%= news_title %></a>:</b>
 		<font size="-1"><%= news_content %></font><br />
 		</dd>
 		<dd>
 		<br />
-		<font size="-1">by <a href="<%= response.encodeURL("pages/?nav=Members&view=member&member_uname=" + news_uname + "&site_name=main") %>"><%= news_uname %></a>
-		in <a href="<%= response.encodeURL("pages/?category=" + rs.getString("cname") + "&site_name=main") %>"><%= rs.getString("cname") %></a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%= response.encodeURL("pages/?view=news_post&news_id=" + news_newsid + "&site_name=main") %>#comments">comments(<%= news_comments %>)</a></font>
+		<font size="-1">by <a href="<%= response.encodeURL("pages/?nav=Members&view=member&member_uname=" + news_uname) %>"><%= news_uname %></a>
+		in <a href="<%= response.encodeURL("pages/?category=" + rs.getString("cname")) %>"><%= rs.getString("cname") %></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%= response.encodeURL("pages/?view=news_post&news_id=" + news_newsid) %>#comments">comments(<%= news_comments %>)</a></font>
 		</dd>
 
 		<br />

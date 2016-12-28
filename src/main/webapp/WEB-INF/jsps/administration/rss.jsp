@@ -6,9 +6,9 @@
   <tr>
     <td class="mainModuleItemContent">
 
-info on rss for your page <a href="<%= response.encodeURL("rss91.jsp?site_name=" + site_name) %>">view rss</a><br />
+info on rss for your page <a href="<%= response.encodeURL("rss91.jsp") %>">view rss</a><br />
 <br />
-<form name="admin" method="POST" action="<%= response.encodeURL("?action=f_rss_desc&nav=Admin&view=rss&site_name=" + site_name) %>">
+<form name="admin" method="POST" action="<%= response.encodeURL("?action=f_rss_desc&nav=Admin&view=rss") %>">
       <table width="100%">
 
 	<%
@@ -17,7 +17,7 @@ info on rss for your page <a href="<%= response.encodeURL("rss91.jsp?site_name="
 
 		try  {
 
-			rs = stmt.executeQuery("SELECT rss_description FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+			rs = stmt.executeQuery("SELECT rss_description FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 
 			if(rs.first())  {
 

@@ -8,7 +8,7 @@ try  {
 	if(request.getParameter("g_id") != null)
 		g_id = request.getParameter("g_id");
 
-	String mess = "DELETE FROM " + dbPrefix + "guestbook WHERE varsname = '" + site_name + "' and guestid = '" + g_id + "'";
+	String mess = "DELETE FROM " + dbPrefix + "guestbook WHERE varsname = '" + siteName + "' and guestid = '" + g_id + "'";
 	del = stmt.executeUpdate(mess);
 
 	if(del > 0)  {	

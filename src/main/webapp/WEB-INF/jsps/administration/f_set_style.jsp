@@ -12,7 +12,7 @@ if(rs.first())  {
 
 	try  {
 		String mess = "UPDATE " + dbPrefix + "site_vars SET style = '" + utilities.filterForSQL(newstyle) + "'" +
-		" WHERE varsname = '" + site_name + "'";
+		" WHERE varsname = '" + siteName + "'";
 
 		stmt.executeUpdate(mess);
 		site_message = "Your style has been changed to " + stylename + "!";

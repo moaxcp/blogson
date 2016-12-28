@@ -10,7 +10,7 @@ int inc = 10;
 if(request.getParameter("start") != null && Integer.valueOf(request.getParameter("start")).intValue() >= 0)
 	start = Integer.valueOf(request.getParameter("start")).intValue();
 
-rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + site_name + "'");
+rs = stmt.executeQuery("SELECT * FROM " + dbPrefix + "site_vars WHERE varsname = '" + siteName + "'");
 if(rs.first())  {
 	inc = rs.getInt("numcomment");
 }
@@ -22,7 +22,7 @@ else  {
 }
 
 
-rs = stmt.executeQuery("Select c.comid, c.name, c.email, c.homepage, c.comment, EXTRACT(DAY FROM c.comdate) as d, EXTRACT(MONTH FROM c.comdate) as m, EXTRACT(HOUR FROM c.comdate) as h, EXTRACT(MINUTE FROM c.comdate) as min, EXTRACT(YEAR FROM c.comdate) as y, c.newsid FROM " + dbPrefix + "comment AS c where varsname = '" + site_name + "' ORDER BY c.comdate desc limit " + inc + " offset " + start);
+rs = stmt.executeQuery("Select c.comid, c.name, c.email, c.homepage, c.comment, EXTRACT(DAY FROM c.comdate) as d, EXTRACT(MONTH FROM c.comdate) as m, EXTRACT(HOUR FROM c.comdate) as h, EXTRACT(MINUTE FROM c.comdate) as min, EXTRACT(YEAR FROM c.comdate) as y, c.newsid FROM " + dbPrefix + "comment AS c where varsname = '" + siteName + "' ORDER BY c.comdate desc limit " + inc + " offset " + start);
 
 String comment_comid, comment_name, comment_email, comment_homepage, comment_comment, comment_newsid, comment_d, comment_m, comment_h, comment_min, comment_y;
 
@@ -55,13 +55,13 @@ while(rs.next())  {
 		  </tr>
 		  <tr>
 		    <td class="sideModuleTitle" width="75%">
-		      <a href="<%= response.encodeURL("?view=news_post&news_id=" + comment_newsid + "&site_name=" + site_name) %>">View News Post</a>
+		      <a href="<%= response.encodeURL("?view=news_post&news_id=" + comment_newsid) %>">View News Post</a>
 		    </td>
 		    <td class="sideModuleTitle">
 		  <%
 			if(logged_position.equals("Administrator"))  {
 				%>
-			<a href="<%= response.encodeURL("?nav=Admin&view=e_comment&comid=" + comment_comid + "&site_name=" + site_name) %>">edit</a>&nbsp;&nbsp;<a href="<%= response.encodeURL("?view=news_post&action=d_comment&comid=" + comment_comid + "&news_id=" + comment_newsid + "&start=" + start + "&site_name=" + site_name) %>">delete</a>
+			<a href="<%= response.encodeURL("?nav=Admin&view=e_comment&comid=" + comment_comid) %>">edit</a>&nbsp;&nbsp;<a href="<%= response.encodeURL("?view=news_post&action=d_comment&comid=" + comment_comid + "&news_id=" + comment_newsid + "&start=" + start) %>">delete</a>
 		  <%
 			}
 		  %>
@@ -77,11 +77,11 @@ while(rs.next())  {
 
 if(start - inc >= 0)  {
 	%>
-	<a href="<%= response.encodeURL("?nav=Comments&view=comments&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
+	<a href="<%= response.encodeURL("?nav=Comments&view=comments&start=" + (start - inc)) %>"> Previous </a>
 	<%
 }
 
-rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where varsname = '" + site_name + "'");
+rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where varsname = '" + siteName + "'");
 rs.first();
 %>
 &nbsp;&nbsp;&nbsp;&nbsp;Showing
@@ -99,11 +99,11 @@ else  {
 %> of <%= rs.getInt("c") %></span>
 
 <%
-rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where comid in (select comid from " + dbPrefix + "comment where varsname = '" + site_name + "' limit " + inc + " offset " + (start + inc) + ")");
+rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment where comid in (select comid from " + dbPrefix + "comment where varsname = '" + siteName + "' limit " + inc + " offset " + (start + inc) + ")");
 
 if(rs.first() && rs.getInt("c") > 0)  {
 	%>
-	<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Comments&view=comments&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
+	<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Comments&view=comments&start=" + (start + inc)) %>"> Next </a></span>
 	<%
 }
 %>

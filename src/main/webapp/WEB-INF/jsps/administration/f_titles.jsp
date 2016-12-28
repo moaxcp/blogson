@@ -13,7 +13,7 @@ try  {
 		"sign_guestbook_link = '" + utilities.filterForSQL(request.getParameter("sign_guestbook_link")) + "', " +
 		"comment_title = '" + utilities.filterForSQL(request.getParameter("comment_title")) + "', " +
 		"signed_title = '" + utilities.filterForSQL(request.getParameter("signed_title")) + "'" +
-		" WHERE varsname = '" + site_name + "'";
+		" WHERE varsname = '" + siteName + "'";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your site variables have been saved successfuly!";

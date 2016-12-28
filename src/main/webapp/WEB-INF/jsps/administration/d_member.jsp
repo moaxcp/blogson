@@ -9,7 +9,7 @@ try  {
 		a_uname = request.getParameter("a_uname");
 
 	if(!a_uname.equals(logged_uname))  {
-		String mess = "DELETE FROM " + dbPrefix + "member_site WHERE varsname = '" + site_name + "' and uname = '" + a_uname + "'";
+		String mess = "DELETE FROM " + dbPrefix + "member_site WHERE varsname = '" + siteName + "' and uname = '" + a_uname + "'";
 		del = stmt.executeUpdate(mess);
 	}
 	else  {

@@ -10,7 +10,7 @@ try  {
 		", '" + utilities.filterHTML(request.getParameter("title")) +
 		"', '" + utilities.filterForSQL(request.getParameter("news")) +
 		"', current_timestamp, '" + logged_uname + 
-		"', '" + utilities.filterHTML(news_cat) + "', '" + site_name + "')";
+		"', '" + utilities.filterHTML(news_cat) + "', '" + siteName + "')";
 
 	stmt.executeUpdate(mess);
 	site_message = "Your post has been successful!";

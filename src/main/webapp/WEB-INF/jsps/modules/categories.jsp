@@ -8,7 +8,7 @@
 	<%
 	try  {
 		//johnmercier_net=# select category.cname, count(news.cname) from jblogrc2_category as category join jblogrc2_news as news on category.cname = news.cname group by category.cname, news.cname;
-		rs = stmt.executeQuery("SELECT cname, count(cname) FROM " + dbPrefix + "news where varsname = '" + site_name + "' group by cname");
+		rs = stmt.executeQuery("SELECT cname, count(cname) FROM " + dbPrefix + "news where varsname = '" + siteName + "' group by cname");
 
 		if(rs.first())  {
 			rs.previous();
@@ -20,12 +20,12 @@
 				<%
 				  if(news_cat.equals(rs.getString("cname")))  {
 					%>
-					<a class="sideModule_links_active" href="<%= response.encodeURL("?category=" + rs.getString("cname") + "&site_name=" + site_name) %>">
+					<a class="sideModule_links_active" href="<%= response.encodeURL("?category=" + rs.getString("cname")) %>">
 					<%
 				  }
 				  else  {
 					%>
-				  	<a class="sideModule_links" href="<%= response.encodeURL("?category=" + rs.getString("cname") + "&site_name=" + site_name) %>">
+				  	<a class="sideModule_links" href="<%= response.encodeURL("?category=" + rs.getString("cname")) %>">
 					<%
 				  }
 				  %>

@@ -6,7 +6,7 @@
   <tr>
     <td class="mainModuleItemContent">
 <%
-rs = stmt.executeQuery("select stats_date, stats_count, stats_total_ms from " + dbPrefix + "site_vars where varsname = '" + site_name + "'");
+rs = stmt.executeQuery("select stats_date, stats_count, stats_total_ms from " + dbPrefix + "site_vars where varsname = '" + siteName + "'");
 
 if(rs.first())  {
 	%>
@@ -16,7 +16,7 @@ if(rs.first())  {
 	Total Time: <%= rs.getInt("stats_total_ms") %><br>
 	Average Time: <%= rs.getInt("stats_count") > 0 ? rs.getInt("stats_total_ms") / rs.getInt("stats_count") : 0 %><br>
 	<br>
-	[<a href="<%= response.encodeURL("?action=f_reset_stats&nav=Admin&view=m_stats&site_name=" + site_name) %>">reset time</a>]<br>
+	[<a href="<%= response.encodeURL("?action=f_reset_stats&nav=Admin&view=m_stats") %>">reset time</a>]<br>
 
 	<%
 }

@@ -9,7 +9,7 @@ else  {
 	return;
 }
 
-rs = stmt.executeQuery("Select fname, lname, minit, uname, job, email, website, info, bday, gender, activated, regdate, EXTRACT(DAY FROM regdate) as d, EXTRACT(MONTH FROM regdate) as m, EXTRACT(YEAR FROM regdate) as y FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site where uname = '" + member_uname + "' and varsname = '" + site_name + "'");
+rs = stmt.executeQuery("Select fname, lname, minit, uname, job, email, website, info, bday, gender, activated, regdate, EXTRACT(DAY FROM regdate) as d, EXTRACT(MONTH FROM regdate) as m, EXTRACT(YEAR FROM regdate) as y FROM " + dbPrefix + "member natural join " + dbPrefix + "member_site where uname = '" + member_uname + "' and varsname = '" + siteName + "'");
 
 %>
 <table class="mainModuleItem">

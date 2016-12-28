@@ -10,7 +10,7 @@ try  {
 
 	rs = stmt.executeQuery("select * from " + dbPrefix + "style where stylename = '" + stylename + "'");
 
-	if(rs.first() && site_name.equals(rs.getString("varsname")))  {
+	if(rs.first() && siteName.equals(rs.getString("varsname")))  {
 		String mess = "DELETE FROM " + dbPrefix + "style WHERE stylename = '" + stylename + "'";
 		del = stmt.executeUpdate(mess);
 	}

@@ -11,7 +11,7 @@ ResultSet rs   = null;
 String driver = "org.postgresql.Driver";
 String url = "jdbc:postgresql://localhost/blogson";
 String username = "john";
-String password = "lemonhead8849";
+String password = "password";
 String dbPrefix = "blogson_";
 
 try {

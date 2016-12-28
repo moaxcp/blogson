@@ -1,0 +1,3 @@
+<!-- nav == <%= nav %> -->
+<div class="tabArea">
+<a class="tab <%= nav.equals("Home") ? "activeTab" : "" %>" href="<%= response.encodeURL("index.jsp?site_name=" + site_name) %>"><%= home_nav %></a>&nbsp;<a class="tab <%= nav.equals("Members") ? "activeTab" : "" %>" href="<%= response.encodeURL("index.jsp?nav=Members&site_name=" + site_name) %>"><%= members_nav %></a>&nbsp;<a class="tab <%= nav.equals("Guestbook") ? "activeTab" : "" %>" href="<%= response.encodeURL("index.jsp?nav=Guestbook&site_name=" + site_name) %>"><%= guestbook_nav %></a>&nbsp;<a class="tab <%= nav.equals("Comments") ? "activeTab" : "" %>" href="<%= response.encodeURL("index.jsp?nav=Comments&view=comments&site_name=" + site_name) %>"><%= comment_title %></a></div>

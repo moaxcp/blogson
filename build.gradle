@@ -7,6 +7,13 @@ apply plugin: 'jetty'
       
  jettyRun {
      daemon = true
+     stopKey = 'abcd'
+     stopPort = 6753
+}
+
+jettyStop {
+    stopKey = 'abcd'
+    stopPort = 6753
 }
 	   
 dependencies {

@@ -17,7 +17,7 @@ try  {
 			%>
 			<tr>
 			<td>
-			<a class="sideModule_links" href="pages/index.jsp?site_name=<%= rs.getString("varsname") %>"><%= rs.getString("varsname") %></a>
+			<a class="sideModule_links" href="pages/?site_name=<%= rs.getString("varsname") %>"><%= rs.getString("varsname") %></a>
 			</td>
 			</tr>
 			<%

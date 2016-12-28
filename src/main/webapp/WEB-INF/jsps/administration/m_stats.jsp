@@ -16,7 +16,7 @@ if(rs.first())  {
 	Total Time: <%= rs.getInt("stats_total_ms") %><br>
 	Average Time: <%= rs.getInt("stats_count") > 0 ? rs.getInt("stats_total_ms") / rs.getInt("stats_count") : 0 %><br>
 	<br>
-	[<a href="<%= response.encodeURL("index.jsp?action=f_reset_stats&nav=Admin&view=m_stats&site_name=" + site_name) %>">reset time</a>]<br>
+	[<a href="<%= response.encodeURL("?action=f_reset_stats&nav=Admin&view=m_stats&site_name=" + site_name) %>">reset time</a>]<br>
 
 	<%
 }

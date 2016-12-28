@@ -23,11 +23,12 @@
 /***************************************************************
  * site variables variables
  **************************************************************/
+ //TODO could probably get this from an access log
 long load_time = System.currentTimeMillis();
 String site_message = new String();
 String site_name = new String();
 
-
+//TODO convert to a variable on the path
 if(request.getParameter("site_name") != null)  {
 	site_name = request.getParameter("site_name");
 }
@@ -198,21 +199,21 @@ if(request.getParameter("nav") != null)
 	<%
 	if(!logged)  {
       		%>
-		[<a href="<%= response.encodeURL("index.jsp?view=login&nav=" + nav + "&site_name=" + site_name) %>">login</a>] [<a href="<%= response.encodeURL("index.jsp?view=register&nav=" + nav + "&site_name=" + site_name) %>">register</a>]
+		[<a href="<%= response.encodeURL("?view=login&nav=" + nav + "&site_name=" + site_name) %>">login</a>] [<a href="<%= response.encodeURL("?view=register&nav=" + nav + "&site_name=" + site_name) %>">register</a>]
 		<%
 	}
 	else  {
 		%>
-		<%= welcome_user %> <%= logged_uname %> [<a href="<%= response.encodeURL("index.jsp?action=logout&site_name=" + site_name) %>">logout</a>] |
+		<%= welcome_user %> <%= logged_uname %> [<a href="<%= response.encodeURL("?action=logout&site_name=" + site_name) %>">logout</a>] |
 		<%
 		if(logged)  {
-			%>[<a href="<%= response.encodeURL("index.jsp?nav=Member&site_name=" + site_name) %>"><%= member_nav %></a>]<%
+			%>[<a href="<%= response.encodeURL("?nav=Member&site_name=" + site_name) %>"><%= member_nav %></a>]<%
 		}
 		if(logged && (logged_position.equals("User") || logged_position.equals("Administrator")))  {
-			%> | [<a href="<%= response.encodeURL("index.jsp?nav=User&site_name=" + site_name) %>"><%= user_nav %></a>]<%
+			%> | [<a href="<%= response.encodeURL("?nav=User&site_name=" + site_name) %>"><%= user_nav %></a>]<%
 		}
 		if(logged && logged_position.equals("Administrator"))  {
-			%> | [<a href="<%= response.encodeURL("index.jsp?nav=Admin&site_name=" + site_name) %>"><%= admin_nav %></a>] <%
+			%> | [<a href="<%= response.encodeURL("?nav=Admin&site_name=" + site_name) %>"><%= admin_nav %></a>] <%
 		}
 	}
 	%>

@@ -11,7 +11,7 @@
 		a_uname = request.getParameter("a_uname");
 %>
 
-<form name="m_profile" onsubmit="return validate_form(m_profile)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_m_profile&nav=" + nav + "&view=" + view + "&a_uname=" + a_uname + "&site_name=" + site_name) %>">
+<form name="m_profile" onsubmit="return validate_form(m_profile)" method="POST" action="<%= response.encodeURL("?action=f_m_profile&nav=" + nav + "&view=" + view + "&a_uname=" + a_uname + "&site_name=" + site_name) %>">
       <table width="100%">
 
 	<%
@@ -49,7 +49,7 @@
 				  </tr>
 				  <tr>
 				    <td>User Page:</td>
-				    <td>[<a href="<%= response.encodeURL("index.jsp?nav=" + nav + "&view=e_mem_page&mem_uname=" + uname + "&site_name=" + site_name) %>">Edit</a>]</td>
+				    <td>[<a href="<%= response.encodeURL("?nav=" + nav + "&view=e_mem_page&mem_uname=" + uname + "&site_name=" + site_name) %>">Edit</a>]</td>
 				  </tr>
 				  <tr>
 				    <td>First Name:</td>

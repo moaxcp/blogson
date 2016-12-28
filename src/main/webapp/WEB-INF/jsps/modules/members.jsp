@@ -63,7 +63,7 @@ if(rs.first())  {
 
 			%>
 		  	<tr>
-		  	  <td valign=top class="<%= memCellClass %>"><a href="<%= response.encodeURL("index.jsp?nav=Members&view=member&member_uname=" + mem_uname + "&site_name=" + site_name) %>"><%= mem_uname %></a></td>
+		  	  <td valign=top class="<%= memCellClass %>"><a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + mem_uname + "&site_name=" + site_name) %>"><%= mem_uname %></a></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_mdate %>/<%= mem_ddate %>/<%= mem_ydate %></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_position %></td>
 		  	  <td valign=top class="<%= memCellClass %>"><img src="../../../servlet/EmailPic?uname=<%= mem_uname %>"></td>
@@ -82,7 +82,7 @@ if(rs.first())  {
 
 	if(start - inc >= 0)  {
 		%>
-		<a href="<%= response.encodeURL("index.jsp?nav=Members&start=" + (start - inc)) %>"> Previous </a>
+		<a href="<%= response.encodeURL("?nav=Members&start=" + (start - inc)) %>"> Previous </a>
 		<%
 	}
 
@@ -110,7 +110,7 @@ if(rs.first())  {
 
 	if(rs.getInt("c") > 0)  {
 		%>
-		<span style="float:right;position:relative"><a href="<%= response.encodeURL("index.jsp?nav=Members&start=" + (start + inc)) %>"> Next </a></span>
+		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Members&start=" + (start + inc)) %>"> Next </a></span>
 		<%
 	}
 	%>

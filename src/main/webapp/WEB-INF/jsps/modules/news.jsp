@@ -77,12 +77,12 @@ if(rs.first())  {
 	  	<table class="mainModuleItem">
 		  <tr>
 		    <td class="mainModuleItemTitle">
-		      <span style="float:left;position:relative"><a href="<%= response.encodeURL("index.jsp?view=news_post&news_id=" + news_newsid + "&site_name=" + site_name) %>"><%= news_title %></a></span>
+		      <span style="float:left;position:relative"><a href="<%= response.encodeURL("?view=news_post&news_id=" + news_newsid + "&site_name=" + site_name) %>"><%= news_title %></a></span>
 		      <span style="float:right;position:relative">
 				<%
 				if(news_uname.equals(logged_uname) || logged_position.equals("Administrator"))  {
 					%>
-					<a href="<%= response.encodeURL("index.jsp?nav=User&view=e_news&newsid=" + news_newsid + "&site_name=" + site_name) %>">edit</a> <a href="<%= response.encodeURL("index.jsp?nav=Home&action=f_dnews&newsid=" + news_newsid + "&site_name=" + site_name) %>">delete</a>
+					<a href="<%= response.encodeURL("?nav=User&view=e_news&newsid=" + news_newsid + "&site_name=" + site_name) %>">edit</a> <a href="<%= response.encodeURL("?nav=Home&action=f_dnews&newsid=" + news_newsid + "&site_name=" + site_name) %>">delete</a>
 					<%
 				}
 				%>
@@ -96,8 +96,8 @@ if(rs.first())  {
 		  </tr>
 		  <tr>
 		    <td class="mainModuleItemSubTitle">
-		      <span style="float:left;position:relative">Posted <%= news_mdate %>/<%= news_ddate %>/<%= news_ydate %> - <%= news_hdate %>:<%= news_mindate %> by <a href="<%= response.encodeURL("index.jsp?nav=Members&view=member&member_uname=" + news_uname + "&site_name=" + site_name) %>"><%= news_uname %></a> in <a href="<%= response.encodeURL("index.jsp?category=" + rs.getString("cname") + "&site_name=" + site_name) %>"><%= rs.getString("cname") %></a></span>
-		      <span style="float:right;position:relative"><a href="<%= response.encodeURL("index.jsp?view=news_post&news_id=" + news_newsid + "&site_name=" + site_name) %>#comments"><%= comment_title %>s(<%= news_comments %>)</a></span>
+		      <span style="float:left;position:relative">Posted <%= news_mdate %>/<%= news_ddate %>/<%= news_ydate %> - <%= news_hdate %>:<%= news_mindate %> by <a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + news_uname + "&site_name=" + site_name) %>"><%= news_uname %></a> in <a href="<%= response.encodeURL("?category=" + rs.getString("cname") + "&site_name=" + site_name) %>"><%= rs.getString("cname") %></a></span>
+		      <span style="float:right;position:relative"><a href="<%= response.encodeURL("?view=news_post&news_id=" + news_newsid + "&site_name=" + site_name) %>#comments"><%= comment_title %>s(<%= news_comments %>)</a></span>
 		    </td>
 		  </tr>
 		</table>
@@ -122,7 +122,7 @@ if(rs.first())  {
 
 	if(rs.getInt("c") > 0)  {
 		%>
-		<a href="<%= response.encodeURL("index.jsp?" + news_vars + "&category=" + news_cat + "&start=" + (start + inc) + "&site_name=" + site_name) %>"> Previous </a>
+		<a href="<%= response.encodeURL("?" + news_vars + "&category=" + news_cat + "&start=" + (start + inc) + "&site_name=" + site_name) %>"> Previous </a>
 		<%
 	}
 
@@ -156,7 +156,7 @@ if(rs.first())  {
 
 	if(start - inc >= 0)  {
 		%>
-		<span style="float:right;position:relative"><a href="<%= response.encodeURL("index.jsp?" + news_vars + "&category=" + news_cat + "&start=" + (start - inc) + "&site_name=" + site_name) %>"> Next </a></span>
+		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?" + news_vars + "&category=" + news_cat + "&start=" + (start - inc) + "&site_name=" + site_name) %>"> Next </a></span>
 		<%
 	}
 }

@@ -11,9 +11,13 @@ public class HomeController {
     @RequestMapping("/")
     public ModelAndView index() throws InterruptedException {
         long startTime = System.nanoTime();
-        Thread.sleep(100);
         ModelAndView mv = new ModelAndView("index");
         mv.addObject("controllerTime", System.nanoTime() - startTime);
         return mv;
+    }
+
+    @RequestMapping("/pages")
+    public ModelAndView pages() {
+        return new ModelAndView("pages/index");
     }
 }

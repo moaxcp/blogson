@@ -24,7 +24,7 @@ else  {
 	if(!logged)  {
       %>
       <br>
-      <form name="register"  onsubmit="return validate_form(register)" method="POST" action="<%= response.encodeURL("index.jsp?nav="+ nav + "&action=f_registration&site_name=" + site_name) %>">
+      <form name="register"  onsubmit="return validate_form(register)" method="POST" action="<%= response.encodeURL("?nav="+ nav + "&action=f_registration&site_name=" + site_name) %>">
       <table width="100%" cellspacing=0 cellpadding=0>
 	<tr>
 	  <td colspan=2>

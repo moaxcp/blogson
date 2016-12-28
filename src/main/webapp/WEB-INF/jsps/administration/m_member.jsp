@@ -58,10 +58,10 @@ if(rs.first())  {
 
 			%>
 		  	<tr>
-		  	  <td valign=top class="<%= memCellClass %>"><a href="<%= response.encodeURL("index.jsp?nav=Members&view=member&member_uname=" + mem_uname + "&site_name=" + site_name) %>"><%= mem_uname %></a></td>
+		  	  <td valign=top class="<%= memCellClass %>"><a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + mem_uname + "&site_name=" + site_name) %>"><%= mem_uname %></a></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_act %></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_position %></td>
-		  	  <td valign=top class="<%= memCellClass %>">[<a href="<%= response.encodeURL("index.jsp?nav=" + nav + "&view=e_mem_page&mem_uname=" + mem_uname + "&site_name=" + site_name) %>">page</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("index.jsp?nav=" + nav + "&view=m_profile&a_uname=" + mem_uname + "&site_name=" + site_name) %>">edit</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("index.jsp?nav=" + nav + "&view=" + view + "&action=d_member&a_uname=" + mem_uname + "&site_name=" + site_name) %>">delete</a>]</td>
+		  	  <td valign=top class="<%= memCellClass %>">[<a href="<%= response.encodeURL("?nav=" + nav + "&view=e_mem_page&mem_uname=" + mem_uname + "&site_name=" + site_name) %>">page</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("?nav=" + nav + "&view=m_profile&a_uname=" + mem_uname + "&site_name=" + site_name) %>">edit</a>]&nbsp;|&nbsp;[<a href="<%= response.encodeURL("?nav=" + nav + "&view=" + view + "&action=d_member&a_uname=" + mem_uname + "&site_name=" + site_name) %>">delete</a>]</td>
 		  	</tr>
 			<%
 
@@ -76,7 +76,7 @@ if(rs.first())  {
 
 	if(start - inc >= 0)  {
 		%>
-		<a href="<%= response.encodeURL("index.jsp?nav=Members&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
+		<a href="<%= response.encodeURL("?nav=Members&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
 		<%
 	}
 
@@ -104,7 +104,7 @@ if(rs.first())  {
 
 	if(rs.getInt("c") > 0)  {
 		%>
-		<span style="float:right;position:relative"><a href="<%= response.encodeURL("index.jsp?nav=Members&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
+		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Members&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
 		<%
 	}
 	%>

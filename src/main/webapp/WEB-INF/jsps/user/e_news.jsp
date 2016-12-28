@@ -27,7 +27,7 @@
 	  </tr>
 	  <tr>
 	    <td class="mainModuleItemContent">
-      <form name="e_news"  onsubmit="return validate_form(e_news)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_enews&nav=Home&newsid=" + newsid + "&site_name=" + site_name) %>">
+      <form name="e_news"  onsubmit="return validate_form(e_news)" method="POST" action="<%= response.encodeURL("?action=f_enews&nav=Home&newsid=" + newsid + "&site_name=" + site_name) %>">
       <table>
 	<tr>
 	  <td colspan=2>Warning! HTML code is accepted.  Do not post html that could screw up the page. ex. &lt;/table&gt;</td>

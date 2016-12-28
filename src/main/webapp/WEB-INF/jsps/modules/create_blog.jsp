@@ -13,7 +13,7 @@ else  {
 }
 
 %>
-<form name="register"  onsubmit="return validate_form(register)" method="POST" action="<%= response.encodeURL("index.jsp?nav="+ nav + "&action=f_create_blog") %>">
+<form name="register"  onsubmit="return validate_form(register)" method="POST" action="<%= response.encodeURL("?nav="+ nav + "&action=f_create_blog") %>">
 <table class="mainModuleItem">
   <tr>
     <td class="mainModuleItemTitle">Sign Up</td>

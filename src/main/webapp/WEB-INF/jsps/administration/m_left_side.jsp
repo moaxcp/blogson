@@ -5,7 +5,7 @@
   </tr>
   <tr>
     <td class="mainModuleItemContent">
-<form name="m_left_side"  onsubmit="return validate_form(m_left_side)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_m_left_side&nav=Admin&view=m_left_side&site_name=" + site_name) %>">
+<form name="m_left_side"  onsubmit="return validate_form(m_left_side)" method="POST" action="<%= response.encodeURL("?action=f_m_left_side&nav=Admin&view=m_left_side&site_name=" + site_name) %>">
       <table width="100%">
 
 	<%

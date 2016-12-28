@@ -14,7 +14,7 @@ else  {
 }
 %>
 
-<form name="s_guestbook"  onsubmit="return validate_form(sign_guestbook)" method="POST" action="<%= response.encodeURL("index.jsp?nav=Guestbook&action=f_guestbook&site_name=" + site_name) %>">
+<form name="s_guestbook"  onsubmit="return validate_form(sign_guestbook)" method="POST" action="<%= response.encodeURL("?nav=Guestbook&action=f_guestbook&site_name=" + site_name) %>">
   <table class="mainModuleItem">
     <tr>
       <td class="mainModuleItemTitle">Sign Guestbook</td>

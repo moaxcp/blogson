@@ -1,4 +1,4 @@
-[<a href="<%= response.encodeURL("index.jsp?nav=Guestbook&view=s_guestbook&site_name=" + site_name ) %>"><%= sign_guestbook_link %></a>]<br>
+[<a href="<%= response.encodeURL("?nav=Guestbook&view=s_guestbook&site_name=" + site_name ) %>"><%= sign_guestbook_link %></a>]<br>
 <br>
 
 <%
@@ -86,7 +86,7 @@ if(rs.first())  {
 					<%
 					if(logged_position.equals("Administrator"))  {
 						%>
-						[<a href="<%= response.encodeURL("index.jsp?nav=Admin&view=e_guestbook&guestid=" + guest_id + "&site_name=" + site_name) %>">edit</a>] [<a href="<%= response.encodeURL("index.jsp?nav=Guestbook&action=d_guestbook&g_id=" + guest_id + "&site_name=" + site_name) %>">delete</a>]
+						[<a href="<%= response.encodeURL("?nav=Admin&view=e_guestbook&guestid=" + guest_id + "&site_name=" + site_name) %>">edit</a>] [<a href="<%= response.encodeURL("?nav=Guestbook&action=d_guestbook&g_id=" + guest_id + "&site_name=" + site_name) %>">delete</a>]
 						<%
 					}
 					%>
@@ -103,7 +103,7 @@ if(rs.first())  {
 
 	if(start - inc >= 0)  {
 		%>
-		<a href="<%= response.encodeURL("index.jsp?nav=Guestbook&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
+		<a href="<%= response.encodeURL("?nav=Guestbook&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
 		<%
 	}
 
@@ -131,7 +131,7 @@ if(rs.first())  {
 
 	if(rs.getInt("c") > 0)  {
 		%>
-		<span style="float:right;position:relative"><a href="<%= response.encodeURL("index.jsp?nav=Guestbook&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
+		<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Guestbook&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
 		<%
 	}
 }

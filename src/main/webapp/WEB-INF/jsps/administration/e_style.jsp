@@ -17,7 +17,7 @@ if(rs.first())  {
 %>
 
 <br />
-<form name="e_style" onsubmit="return validate_form(e_style)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_e_style&stylename=" + stylename + "&nav=Admin&view=e_style&site_name=" + site_name) %>">
+<form name="e_style" onsubmit="return validate_form(e_style)" method="POST" action="<%= response.encodeURL("?action=f_e_style&stylename=" + stylename + "&nav=Admin&view=e_style&site_name=" + site_name) %>">
       <table border=0 cellspacing=0 cellpadding=3>
 	  <tr>
 	    <td valign="top">Style&nbsp;Name:</td>

@@ -55,13 +55,13 @@ while(rs.next())  {
 		  </tr>
 		  <tr>
 		    <td class="sideModuleTitle" width="75%">
-		      <a href="<%= response.encodeURL("index.jsp?view=news_post&news_id=" + comment_newsid + "&site_name=" + site_name) %>">View News Post</a>
+		      <a href="<%= response.encodeURL("?view=news_post&news_id=" + comment_newsid + "&site_name=" + site_name) %>">View News Post</a>
 		    </td>
 		    <td class="sideModuleTitle">
 		  <%
 			if(logged_position.equals("Administrator"))  {
 				%>
-			<a href="<%= response.encodeURL("index.jsp?nav=Admin&view=e_comment&comid=" + comment_comid + "&site_name=" + site_name) %>">edit</a>&nbsp;&nbsp;<a href="<%= response.encodeURL("index.jsp?view=news_post&action=d_comment&comid=" + comment_comid + "&news_id=" + comment_newsid + "&start=" + start + "&site_name=" + site_name) %>">delete</a>
+			<a href="<%= response.encodeURL("?nav=Admin&view=e_comment&comid=" + comment_comid + "&site_name=" + site_name) %>">edit</a>&nbsp;&nbsp;<a href="<%= response.encodeURL("?view=news_post&action=d_comment&comid=" + comment_comid + "&news_id=" + comment_newsid + "&start=" + start + "&site_name=" + site_name) %>">delete</a>
 		  <%
 			}
 		  %>
@@ -77,7 +77,7 @@ while(rs.next())  {
 
 if(start - inc >= 0)  {
 	%>
-	<a href="<%= response.encodeURL("index.jsp?nav=Comments&view=comments&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
+	<a href="<%= response.encodeURL("?nav=Comments&view=comments&start=" + (start - inc) + "&site_name=" + site_name) %>"> Previous </a>
 	<%
 }
 
@@ -103,7 +103,7 @@ rs = stmt.executeQuery("select count(comid) as c from " + dbPrefix + "comment wh
 
 if(rs.first() && rs.getInt("c") > 0)  {
 	%>
-	<span style="float:right;position:relative"><a href="<%= response.encodeURL("index.jsp?nav=Comments&view=comments&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
+	<span style="float:right;position:relative"><a href="<%= response.encodeURL("?nav=Comments&view=comments&start=" + (start + inc) + "&site_name=" + site_name) %>"> Next </a></span>
 	<%
 }
 %>

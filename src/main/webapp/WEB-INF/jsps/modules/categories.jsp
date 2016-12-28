@@ -20,12 +20,12 @@
 				<%
 				  if(news_cat.equals(rs.getString("cname")))  {
 					%>
-					<a class="sideModule_links_active" href="<%= response.encodeURL("index.jsp?category=" + rs.getString("cname") + "&site_name=" + site_name) %>">
+					<a class="sideModule_links_active" href="<%= response.encodeURL("?category=" + rs.getString("cname") + "&site_name=" + site_name) %>">
 					<%
 				  }
 				  else  {
 					%>
-				  	<a class="sideModule_links" href="<%= response.encodeURL("index.jsp?category=" + rs.getString("cname") + "&site_name=" + site_name) %>">
+				  	<a class="sideModule_links" href="<%= response.encodeURL("?category=" + rs.getString("cname") + "&site_name=" + site_name) %>">
 					<%
 				  }
 				  %>

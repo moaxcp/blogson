@@ -22,7 +22,7 @@ if(rs.first())  {
 	comment_comment = rs.getString("comment");
 	comment_newsid = rs.getString("newsid");
 %>
-<form name="e_comment" onsubmit="return validate_form(e_comment)" method="POST" action="<%= response.encodeURL("index.jsp?nav=Home&view=news_post&news_id=" + comment_newsid + "&action=f_e_comment&comid=" + comid + "&site_name=" + site_name) %>">
+<form name="e_comment" onsubmit="return validate_form(e_comment)" method="POST" action="<%= response.encodeURL("?nav=Home&view=news_post&news_id=" + comment_newsid + "&action=f_e_comment&comid=" + comid + "&site_name=" + site_name) %>">
   <table class="mainModuleItem">
     <tr>
       <td class="mainModuleItemTitle">Edit Comment</td>

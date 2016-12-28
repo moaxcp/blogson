@@ -36,7 +36,7 @@
 				birthday = rs.getString("bday");
 
 				%>
-				<form name="profile"  onsubmit="return validate_form(profile)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_profile&nav=Member&view=profile&site_name=" + site_name) %>">
+				<form name="profile"  onsubmit="return validate_form(profile)" method="POST" action="<%= response.encodeURL("?action=f_profile&nav=Member&view=profile&site_name=" + site_name) %>">
 				<table>
 				  <tr>
 				    <td>User Name</td>

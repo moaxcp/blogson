@@ -47,7 +47,7 @@ if(rs.first())  {
 	  The following function can be used to edit the categories for news posts.<br>
 	  <br>
 	  Change Category Name:<br>
-	  <form name="m_cats"  onsubmit="return validate_form(m_cats)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_m_cats&nav=Admin&view=m_cats&site_name=" + site_name) %>">
+	  <form name="m_cats"  onsubmit="return validate_form(m_cats)" method="POST" action="<%= response.encodeURL("?action=f_m_cats&nav=Admin&view=m_cats&site_name=" + site_name) %>">
 	    Category:&nbsp;<input name="category" type="text"><br>New Name:&nbsp;<input name="new_category" type="text"><br><input type="submit" value="Submit">
 	  </form>
 	</td>

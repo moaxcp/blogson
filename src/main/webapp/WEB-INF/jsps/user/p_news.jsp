@@ -6,7 +6,7 @@
   <tr>
     <td class="mainModuleItemContent">
       <br>
-      <form name="p_news" onsubmit="return validate_form(p_news)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_news&nav=Home&site_name=" + site_name) %>">
+      <form name="p_news" onsubmit="return validate_form(p_news)" method="POST" action="<%= response.encodeURL("?action=f_news&nav=Home&site_name=" + site_name) %>">
       <table>
 	<tr>
 	  <td>Title:</td>

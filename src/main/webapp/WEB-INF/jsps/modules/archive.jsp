@@ -34,12 +34,12 @@ if(request.getParameter("news_month") != null && request.getParameter("news_year
 				<%
 				if(amonth.equals(news_month) && ayear.equals(news_year))  {
 					%>
-					<a class="sideModule_links_active" href="<%= response.encodeURL("index.jsp?news_month=" + amonth + "&news_year=" + ayear + "&site_name=" + site_name) %>">
+					<a class="sideModule_links_active" href="<%= response.encodeURL("?news_month=" + amonth + "&news_year=" + ayear + "&site_name=" + site_name) %>">
 					<%
 				}
 				else  {
 					%>
-					<a class="sideModule_links" href="<%= response.encodeURL("index.jsp?news_month=" + amonth + "&news_year=" + ayear + "&site_name=" + site_name) %>">
+					<a class="sideModule_links" href="<%= response.encodeURL("?news_month=" + amonth + "&news_year=" + ayear + "&site_name=" + site_name) %>">
 					<%
 				}
 				%>

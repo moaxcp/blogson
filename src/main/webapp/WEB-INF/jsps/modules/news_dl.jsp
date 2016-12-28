@@ -35,14 +35,14 @@ if(rs.first())  {
 		}
 		%>
 		<dd>
-		<b><a href="<%= response.encodeURL("pages/index.jsp?view=news_post&news_id=" + news_newsid + "&site_name=main") %>"><%= news_title %></a>:</b>
+		<b><a href="<%= response.encodeURL("pages/?view=news_post&news_id=" + news_newsid + "&site_name=main") %>"><%= news_title %></a>:</b>
 		<font size="-1"><%= news_content %></font><br />
 		</dd>
 		<dd>
 		<br />
-		<font size="-1">by <a href="<%= response.encodeURL("pages/index.jsp?nav=Members&view=member&member_uname=" + news_uname + "&site_name=main") %>"><%= news_uname %></a>
-		in <a href="<%= response.encodeURL("pages/index.jsp?category=" + rs.getString("cname") + "&site_name=main") %>"><%= rs.getString("cname") %></a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%= response.encodeURL("pages/index.jsp?view=news_post&news_id=" + news_newsid + "&site_name=main") %>#comments">comments(<%= news_comments %>)</a></font>
+		<font size="-1">by <a href="<%= response.encodeURL("pages/?nav=Members&view=member&member_uname=" + news_uname + "&site_name=main") %>"><%= news_uname %></a>
+		in <a href="<%= response.encodeURL("pages/?category=" + rs.getString("cname") + "&site_name=main") %>"><%= rs.getString("cname") %></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%= response.encodeURL("pages/?view=news_post&news_id=" + news_newsid + "&site_name=main") %>#comments">comments(<%= news_comments %>)</a></font>
 		</dd>
 
 		<br />

@@ -7,7 +7,7 @@
       <%
 	if(!logged)  {
       %>
-	    <form name="login" onsubmit="return validate_form(login)" action="<%= response.encodeURL("index.jsp?action=f_login&nav=" + nav + "&site_name=" + site_name) %>" method="post">
+	    <form name="login" onsubmit="return validate_form(login)" action="<%= response.encodeURL("?action=f_login&nav=" + nav + "&site_name=" + site_name) %>" method="post">
 	      <table cellpadding=0 cellspacing=0>
 		<tr>
 		  <td>User Name:</td>

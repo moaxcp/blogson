@@ -57,7 +57,7 @@ if(rs.first())  {
 	%><item>
 		<category><%= rs.getString("cname") %></category>
 		<title><%= rs.getString("title") %></title>
-		<link><%= utilities.filterHTML("http://" + request.getServerName() + ":" + request.getServerPort() + "/blogson/index.jsp?view=news_post&news_id=" + rs.getString("newsid") + "&site_name=" + site_name) %></link>
+		<link><%= utilities.filterHTML("http://" + request.getServerName() + ":" + request.getServerPort() + "/blogson/?view=news_post&news_id=" + rs.getString("newsid") + "&site_name=" + site_name) %></link>
 		<description><%= utilities.filterHTML(rs.getString("content")) %></description>
 		<pubDate><%= utilities.getDayOfWeek(day) %>, <%= utilities.getZeros(rs.getInt("d")) %> <%= utilities.getMonthOfYear(rs.getInt("m")) %> <%= rs.getString("y") %> <%= utilities.getZeros(rs.getInt("h")) %>:<%= utilities.getZeros(rs.getInt("min")) %>:<%= utilities.getZeros(rs.getInt("sec")) %> EST</pubDate>
 		</item>

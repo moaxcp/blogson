@@ -32,7 +32,7 @@
 				admin_signed_title = rs.getString("signed_title");
 
 
-				%><form name="m_titles" onsubmit="return validate_form(m_titles)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_titles&nav=Admin&view=m_titles&site_name=" + site_name) %>">
+				%><form name="m_titles" onsubmit="return validate_form(m_titles)" method="POST" action="<%= response.encodeURL("?action=f_titles&nav=Admin&view=m_titles&site_name=" + site_name) %>">
 				  <table width="100%">
 				  <tr>
 				    <td valign=top>Home Navigation:</td>

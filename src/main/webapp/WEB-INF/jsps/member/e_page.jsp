@@ -14,7 +14,7 @@ if(rs.first())  {
 %>
 
 <br />
-<form name="e_page" onsubmit="return validate_form(e_page)" method="POST" action="<%= response.encodeURL("index.jsp?action=f_e_page&nav=" + nav + "&view=e_page&site_name=" + site_name) %>">
+<form name="e_page" onsubmit="return validate_form(e_page)" method="POST" action="<%= response.encodeURL("?action=f_e_page&nav=" + nav + "&view=e_page&site_name=" + site_name) %>">
       <table border=0 cellspacing=0 cellpadding=3>
 	  <tr>
 	    <td valign=top>Page:<br><input type="button" value="count" onclick="alert('Style is ' + ffff.value.length + ' characters long.')"></td>

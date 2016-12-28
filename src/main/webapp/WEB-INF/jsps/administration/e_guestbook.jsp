@@ -30,7 +30,7 @@ else  {
 }
 %>
 
-<form name="e_guestbook" onsubmit="return validate_form(e_guestbook)" method="POST" action="<%= response.encodeURL("index.jsp?nav=Guestbook&action=f_e_guestbook&guestid=" + guestid + "&site_name=" + site_name) %>">
+<form name="e_guestbook" onsubmit="return validate_form(e_guestbook)" method="POST" action="<%= response.encodeURL("?nav=Guestbook&action=f_e_guestbook&guestid=" + guestid + "&site_name=" + site_name) %>">
   <table class="mainModuleItem">
     <tr>
       <td class="mainModuleItemTitle">Edit Guestbook</td>

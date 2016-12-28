@@ -5,7 +5,7 @@
   </tr>
   <tr>
     <td class="mainModuleItemContent">
-[<a href=<%= response.encodeURL("index.jsp?nav=Admin&view=create_style&site_name=" + site_name) %>>add style</a>]<br />
+[<a href=<%= response.encodeURL("?nav=Admin&view=create_style&site_name=" + site_name) %>>add style</a>]<br />
 <br />
 <%
 rs = stmt.executeQuery("select * from " + dbPrefix + "style");
@@ -35,7 +35,7 @@ if(rs.first())  {
 		  <td class="<%= cellClass %>"><%= rs.getString("varsname") %></td>
 		  <td class="<%= cellClass %>"><%
 			if(rs.getString("varsname").equals(site_name))  {
-				%><a href="<%= response.encodeURL("index.jsp?stylename=" + rs.getString("stylename") + "&nav=Admin&view=e_style&site_name=" + site_name) %>">Edit</a><%
+				%><a href="<%= response.encodeURL("?stylename=" + rs.getString("stylename") + "&nav=Admin&view=e_style&site_name=" + site_name) %>">Edit</a><%
 			}
 			else  {
 				%>&nbsp;<%
@@ -43,7 +43,7 @@ if(rs.first())  {
 		  %></td>
 		  <td class="<%= cellClass %>"><%
 			if(rs.getString("varsname").equals(site_name))  {
-				%><a href="<%= response.encodeURL("index.jsp?action=d_style&stylename=" + rs.getString("stylename") + "&nav=Admin&view=all_styles&site_name=" + site_name) %>">Delete</a><%
+				%><a href="<%= response.encodeURL("?action=d_style&stylename=" + rs.getString("stylename") + "&nav=Admin&view=all_styles&site_name=" + site_name) %>">Delete</a><%
 			}
 			else  {
 				%>&nbsp;<%

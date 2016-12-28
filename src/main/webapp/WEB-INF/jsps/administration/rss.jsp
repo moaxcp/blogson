@@ -8,7 +8,7 @@
 
 info on rss for your page <a href="<%= response.encodeURL("rss91.jsp?site_name=" + site_name) %>">view rss</a><br />
 <br />
-<form name="admin" method="POST" action="<%= response.encodeURL("index.jsp?action=f_rss_desc&nav=Admin&view=rss&site_name=" + site_name) %>">
+<form name="admin" method="POST" action="<%= response.encodeURL("?action=f_rss_desc&nav=Admin&view=rss&site_name=" + site_name) %>">
       <table width="100%">
 
 	<%

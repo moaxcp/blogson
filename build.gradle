@@ -9,7 +9,6 @@ group = 'com.github.moaxcp'
  }
       
  jettyRun {
-     daemon = true
      stopKey = 'abcd'
      stopPort = 6753
 }

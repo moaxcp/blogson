@@ -247,8 +247,13 @@ if(request.getParameter("nav") != null)
 	      Software created by moaxcp
 	    </span>
 	    <span style="float:right;position:relative">
-	      Creation time: <% load_time = System.currentTimeMillis() - load_time; %><%= load_time %>ms
+	      Creation time: <% load_time = System.currentTimeMillis() - load_time + ((Long) request.getAttribute("controllerTime") / 1000000); %><%= load_time %>ms
 	    </span>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	      ${controllerTime}
 	  </td>
 	</tr>
       </table>

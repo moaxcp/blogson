@@ -155,7 +155,7 @@ public class utilities {
     }
      */
 
-    public static BufferedImage getEmailPic(String uname) throws Exception {
+    public static BufferedImage getEmailPic(String uname) throws ClassNotFoundException, SQLException {
 
         System.setProperty("java.awt.headless", "true");
 
@@ -166,25 +166,21 @@ public class utilities {
         String driver = "org.postgresql.Driver";
         String url = "jdbc:postgresql://localhost/blogson";
         String username = "john";
-        String password = "lemonhead8849";
+        String password = "password";
         String dbPrefix = "blogson_";
 
-        try {
-            Class.forName(driver);
-            con = DriverManager.getConnection(url, username, password);
-            stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            rs = stmt.executeQuery("select email from " + dbPrefix + "member where uname = '" + uname + "'");
-            System.out.println("email " + uname);
-        } catch (Exception ex) {
-            throw ex;
-        }
+        Class.forName(driver);
+        con = DriverManager.getConnection(url, username, password);
+        stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        rs = stmt.executeQuery("select email from " + dbPrefix + "member where uname = '" + uname + "'");
+        System.out.println("email " + uname);
 
         String emailAddress = new String();
 
         if (rs.first()) {
             emailAddress = rs.getString("email");
         } else {
-            throw new Exception("Could not find email for uname: " + uname);
+            throw new IllegalArgumentException("Could not find email for uname: " + uname);
         }
 
         int width = 255;

@@ -89,7 +89,7 @@ if(rs.first())  {
 	  </tr>
 	  <tr>
 	    <td>Email Address</td>
-	    <td><img src="../../../servlet/EmailPic?uname=<%= member_uname %>"></td>
+	    <td><img src="<%= request.getContextPath() %>/emailpic/<%= member_uname %>"></td>
 	  </tr>
 	  <tr>
 	    <td>Website</td>

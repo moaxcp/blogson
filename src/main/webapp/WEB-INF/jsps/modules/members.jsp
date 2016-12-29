@@ -66,7 +66,7 @@ if(rs.first())  {
 		  	  <td valign=top class="<%= memCellClass %>"><a href="<%= response.encodeURL("?nav=Members&view=member&member_uname=" + mem_uname) %>"><%= mem_uname %></a></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_mdate %>/<%= mem_ddate %>/<%= mem_ydate %></td>
 		  	  <td valign=top class="<%= memCellClass %>"><%= mem_position %></td>
-		  	  <td valign=top class="<%= memCellClass %>"><img src="../../../servlet/EmailPic?uname=<%= mem_uname %>"></td>
+		  	  <td valign=top class="<%= memCellClass %>"><img src="<%= request.getContextPath() %>/emailpic/<%= mem_uname %>"></td>
 		  	</tr>
 			<%
 

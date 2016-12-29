@@ -1,24 +1,24 @@
-apply plugin: 'war'
-apply plugin: 'jetty'
-apply plugin: 'idea'
-
 version = '0.0.0-SNAPSHOT'
 group = 'com.github.moaxcp'
- 
- repositories {
-     mavenCentral()
- }
-      
- jettyRun {
-     stopKey = 'abcd'
-     stopPort = 6753
+
+apply plugin: 'war'
+apply plugin: 'idea'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
 }
 
-jettyStop {
-    stopKey = 'abcd'
-    stopPort = 6753
+apply plugin: 'org.akhikhl.gretty'
+
+repositories {
+    mavenCentral()
 }
-	   
+
 dependencies {
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
     runtime 'org.postgresql:postgresql:9.4.1209.jre7'

@@ -251,11 +251,6 @@ if(request.getParameter("nav") != null)
 	    </span>
 	  </td>
 	</tr>
-	<tr>
-	  <td>
-	      ${controllerTime}
-	  </td>
-	</tr>
       </table>
     </td>
   </tr>

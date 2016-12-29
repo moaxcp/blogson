@@ -163,6 +163,7 @@ public class utilities {
         Statement stmt = null;
         ResultSet rs = null;
 
+        //todo need to get this from a datasource
         String driver = "org.postgresql.Driver";
         String url = "jdbc:postgresql://localhost/blogson";
         String username = "john";
